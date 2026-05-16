@@ -11,7 +11,7 @@ Single-file practice tools for Dutch first-year high school students preparing f
 
 Read a theme in the booklet, then run a quiz filtered to that theme, then do a Leitner pass on the flashcards. The three tools share the same 235 words and the same theme structure, so they reinforce each other.
 
-## WARNING: The single highest-yield activity is active recall: covering the Dutch side and trying to produce the French word (and vice versa for Core words) from memory. Looking at the words on a page or screen & simply reading it in your mind is comforting, but does very little. Speak the words out loud as you read them, including in the tests. Do that, test yourself, get it wrong, check the right answer and practice it until you get it right next time: that's how vocabulary sticks.
+**WARNING:** The single highest-yield activity is active recall: covering the Dutch side and trying to produce the French word (and vice versa for Core words) from memory; looking at the words on a page or screen & simply reading it in your mind is comforting & less painful, but does almost nothing. Active recall is critical and why the quiz is important - also important is to speak the words out loud as you read them, including in the quiz. Do that, test yourself, get it wrong, check the right answer and practice it until you get it right next time: that's how vocabulary sticks.
 
 ## Notes
 
