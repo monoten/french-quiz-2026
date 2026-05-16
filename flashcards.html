@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>French Vocabulary Flashcards — Unités 1–6</title>
+<style>
+  @page { size: A4 portrait; margin: 8mm; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; padding: 0; color: #222; }
+  .toolbar { position: sticky; top: 0; background: #2a3144; color: #fff; padding: 10px 16px; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 100; }
+  .toolbar button { background: #ffb84a; color: #222; border: none; padding: 8px 14px; font-size: 14px; font-weight: 600; border-radius: 4px; cursor: pointer; }
+  .toolbar button:hover { background: #ffc66c; }
+  .toolbar .subtitle { font-size: 13px; opacity: 0.8; }
+  .cover, .deck-header { padding: 12mm 14mm; page-break-after: always; }
+  .cover h1 { font-size: 22pt; margin: 0 0 6mm; color: #2a3144; }
+  .cover h2 { font-size: 13pt; margin: 6mm 0 3mm; color: #2a3144; }
+  .cover p { font-size: 10.5pt; line-height: 1.45; margin: 0 0 3mm; }
+  .cover ol, .cover ul { font-size: 10.5pt; line-height: 1.5; padding-left: 6mm; }
+  .cover li { margin-bottom: 1.5mm; }
+  .legend { display: flex; gap: 8mm; margin: 4mm 0; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 2mm; font-size: 10pt; }
+  .legend-swatch { width: 18mm; height: 9mm; border: 1px solid #888; display: inline-block; }
+  .legend-swatch.core { background: #fff5e1; border-color: #c89432; }
+  .legend-swatch.recog { background: #f1f3f6; border-color: #aaa; }
+  .deck-header h1 { font-size: 22pt; color: #2a3144; margin: 0 0 4mm; }
+  .deck-header .lead { font-size: 11pt; color: #555; line-height: 1.45; }
+  .badge { display: inline-block; padding: 1mm 3mm; border-radius: 2mm; font-size: 10pt; font-weight: 600; margin-right: 2mm; }
+  .badge.core { background: #fff5e1; color: #8b5a1a; border: 1px solid #c89432; }
+  .badge.recog { background: #f1f3f6; color: #444; border: 1px solid #888; }
+
+  .page {
+    width: 100%;
+    page-break-after: always;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 90mm);
+    gap: 0;
+    padding: 0;
+  }
+  .card {
+    position: relative;
+    border: 1px dashed #888;
+    border-radius: 1.5mm;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: white;
+  }
+  .card.core { background: #fffaeb; border-color: #c89432; }
+  .card.recog { background: #f7f8fa; border-color: #aaa; }
+  .half {
+    flex: 1;
+    padding: 3.5mm 4mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .front { border-bottom: 1px solid #666; }
+  .fr { font-size: 13.5pt; font-weight: 700; line-height: 1.15; color: #1a2235; }
+  .fr-hint { font-size: 7.5pt; color: #777; margin-top: 1mm; font-weight: 400; font-style: italic; }
+  .phon { font-size: 8pt; color: #5a5a5a; font-style: italic; margin-top: 1.2mm; letter-spacing: 0.2px; }
+  .nl { font-size: 12.5pt; font-weight: 700; line-height: 1.15; color: #1a2235; }
+  .grammar { font-size: 7.2pt; color: #2a3144; margin-top: 1.5mm; line-height: 1.25; }
+  .en { font-size: 7.5pt; color: #555; margin-top: 1.5mm; font-style: italic; line-height: 1.25; }
+  .example { font-size: 7pt; color: #5a5a5a; margin-top: 1mm; line-height: 1.2; }
+  .sense { font-size: 6.8pt; color: #1f5a8a; margin-top: 1mm; line-height: 1.2; }
+  .warn { font-size: 6.8pt; color: #b22a2a; margin-top: 1mm; font-weight: 600; line-height: 1.2; }
+  .meta-tr { position: absolute; top: 1.5mm; right: 2.5mm; font-size: 10pt; color: #999; line-height: 1; }
+  .meta-bl { position: absolute; bottom: 1.5mm; left: 2.5mm; font-size: 6.5pt; color: #999; }
+  .meta-br { position: absolute; bottom: 1.5mm; right: 2.5mm; font-size: 6.5pt; color: #999; font-style: italic; }
+
+  @media screen {
+    body { background: #e6e8ee; padding: 14px; }
+    .cover, .deck-header, .page { background: white; max-width: 210mm; margin: 0 auto 18px; box-shadow: 0 3px 10px rgba(0,0,0,0.12); padding: 10mm; }
+    .page { padding: 8mm; }
+    .back { border-top: 1px solid #bbb; }
+    .front { border-bottom: none; }
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .toolbar { display: none; }
+    .back { transform: rotate(180deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="window.print()">Print / Save as PDF</button>
+  <div>
+    <div style="font-weight:600">French Vocabulary Flashcards — Unités 1–6</div>
+    <div class="subtitle">Print on A4, cut on dashed lines, fold on solid line. See cover page for instructions.</div>
+  </div>
+</div>
+
+<div class="cover">
+  <h1>French Vocabulary Flashcards</h1>
+  <p><strong>Unités 1–6 — Brugklas vocabulary</strong> · 235 cards, two decks, 30-day study plan included.</p>
+
+  <h2>What's in this kit</h2>
+  <div class="legend">
+    <div class="legend-item"><span class="legend-swatch core"></span> <span><strong>Core deck (⇄)</strong> · 83 cards · learn both ways (NL↔FR)</span></div>
+    <div class="legend-item"><span class="legend-swatch recog"></span> <span><strong>Recognition deck (→)</strong> · 152 cards · learn FR→NL only</span></div>
+  </div>
+
+  <h2>How to read a card</h2>
+  <p><strong>Front (French side)</strong> shows the French word with its article (<em>le, la, les, l'</em>), an informal pronunciation guide in italics (e.g. <em>[shyan]</em> for <em>chien</em>), and where the form on the list is conjugated, the dictionary form in brackets (e.g. <em>Je m'appelle (s'appeler)</em>). For adjectives with both forms (e.g. <em>Petit(e)</em>), the (e) means add an <em>e</em> for the feminine.</p>
+  <p><strong>Back (Dutch side)</strong> shows the Dutch translation — that's the test answer. Below it, supplementary info: gender forms or infinitive for grammar, an English memory bridge ("related to 'X'" for true cognates, "like 'X'" for similar-sounding bridges), a short example using other words from this same list, and where useful a sense note (ℹ) or false-friend warning (⚠).</p>
+
+  <h2>Pronunciation key</h2>
+  <p>The phonetic guides use English-sound spelling, not IPA. Key conventions:</p>
+  <ul>
+    <li><strong>zh</strong> = the French <em>j</em> sound (like the 's' in "measure")</li>
+    <li><strong>sh</strong> = French <em>ch</em> (like English "sh")</li>
+    <li><strong>ew</strong> = French <em>u</em> (no English equivalent — round your lips and say "ee")</li>
+    <li><strong>oo</strong> = French <em>ou</em> (like "boot")</li>
+    <li><strong>uh</strong> = the schwa-like <em>e</em> or <em>eu</em></li>
+    <li><strong>ahn / ohn / an / yan</strong> = nasal vowels (the <em>n</em> isn't really pronounced — it nasalises the vowel before it)</li>
+    <li><strong>r</strong> = the French <em>r</em> is guttural, made at the back of the throat — different from English r</li>
+  </ul>
+
+  <h2>How to make the cards</h2>
+  <ol>
+    <li><strong>Print</strong> on regular paper — cardstock is better but not required. Pages 3 onward have the cards (6 per page).</li>
+    <li><strong>Cut</strong> along the dashed lines around each card.</li>
+    <li><strong>Fold</strong> each card in half along the solid line in the middle. Fold the <em>bottom half up and behind</em> — both printed sides should end up on the OUTSIDE of the folded card. (The back text is printed upside-down on purpose; the fold puts it the right way up.)</li>
+    <li><strong>Sort</strong> the Core cards (warm yellow) into one stack and Recognition cards (grey) into another.</li>
+  </ol>
+
+  <h2>Suggested study method — the Leitner box</h2>
+  <p>Get 5 small boxes, envelopes, or just five spots on a desk. Number them <strong>1–5</strong>. All cards start in box 1.</p>
+  <ul>
+    <li>Each day, draw a card. Try to recall the answer before flipping.</li>
+    <li><strong>Got it right</strong> → card moves to the NEXT box (1→2→3→4→5).</li>
+    <li><strong>Got it wrong</strong> → card goes back to box 1.</li>
+    <li>Review schedule: <strong>Box 1 every day</strong>, Box 2 every 2 days, Box 3 every 4 days, Box 4 every week, Box 5 every 2 weeks.</li>
+    <li>A card in box 5 is "learned." If a box-5 card is ever wrong, it goes back to box 1 — leeches need fresh attention.</li>
+  </ul>
+
+  <h2>30-day plan (test on 10 June)</h2>
+  <ul>
+    <li><strong>Days 1–3 (warm-up):</strong> Sort the cards. Read through the Core deck once. Drop the easiest 20 (you already know them) into box 2.</li>
+    <li><strong>Days 4–14 (intake):</strong> Add ~15 new cards/day to box 1, alternating Core and Recognition. Daily Leitner pass: box 1 every day, others on their schedule. Aim for ~20 minutes total.</li>
+    <li><strong>Days 15–25 (consolidation):</strong> No new cards. Pure Leitner cycling. Track which cards keep coming back to box 1 — those are your leeches; rewrite them with extra-vivid English bridges.</li>
+    <li><strong>Days 26–30 (test prep):</strong> Two full passes per day. Mock test from a friend or parent. Sleep well — vocabulary consolidates during sleep.</li>
+  </ul>
+
+  <h2>How to use the English bridge</h2>
+  <p>The Dutch answer is what counts on the test. English never appears in the answer — it's a <em>memory scaffold</em>. When you see <em>la chambre</em>, the English hint "<em>related to 'chamber, chamber pot'</em>" links the unfamiliar French word to something already familiar. After a few days the bridge falls away and you just know the word.</p>
+  <p>For <strong>false friends</strong> (marked ⚠), do the opposite — actively notice the trap. <em>Demander</em> looks like "demand" but means "ask." Build a clear image: a French waiter politely <em>asking</em> what you'd like, not demanding it.</p>
+</div>
+
+<div id="cards"></div>
+
+<script>
+// ============================================================
+// Vocabulary data — 235 cards (Unités 1–6)
+// Fields:
+//   d   = deck (C = Core/bidirectional, R = Recognition/FR→NL only)
+//   fr  = French (with article for nouns)
+//   ph  = informal English-sound pronunciation
+//   frHint = optional dictionary-form hint (shown on front)
+//   nl  = Dutch translation (the test answer)
+//   gen = optional gender forms for adjectives ("Masculine: X · Feminine: Y")
+//   inf = optional note about the dictionary form ("Infinitive: X")
+//   en  = English memory bridge
+//   ex  = optional example phrase (uses other words from this list)
+//   sense = optional sense disambiguation note
+//   t   = theme tag
+//   w   = optional false-friend warning
+// ============================================================
+const data = [
+  // ---------- CORE DECK (bidirectional, NL ↔ FR) ----------
+  {d:"C", fr:"Je m'appelle", frHint:"(s'appeler)", ph:"zhuh mah-PELL", nl:"ik heet", inf:"Infinitive (dictionary) form: s'appeler — to be called", en:"literally \"I call myself\" — related to 'appeal'", t:"phrase", ex:"Je m'appelle Lila."},
+  {d:"C", fr:"J'habite", frHint:"(habiter)", ph:"zha-BEET", nl:"ik woon", inf:"Infinitive (dictionary) form: habiter — to live, inhabit", en:"related to 'inhabit'", t:"phrase", ex:"J'habite ici."},
+  {d:"C", fr:"Il y a", ph:"eel-YAH", nl:"er is, er zijn", en:"there is / there are", t:"phrase", ex:"Il y a un chien."},
+  {d:"C", fr:"C'est", ph:"say", nl:"het is", en:"it is / this is", t:"phrase", ex:"C'est bon !"},
+  {d:"C", fr:"Où", ph:"oo", nl:"waar", en:"where (with accent — distinguish from \"ou\" = or)", t:"question", ex:"Où est le chien ?"},
+  {d:"C", fr:"Grand(e)", ph:"grahn / grahnd", nl:"groot", gen:"Masculine: Grand · Feminine: Grande", en:"related to 'grand'", t:"adjective", ex:"une grande maison"},
+  {d:"C", fr:"Petit(e)", ph:"puh-TEE / puh-TEET", nl:"klein", gen:"Masculine: Petit · Feminine: Petite", en:"related to 'petite'", t:"adjective", ex:"un petit chien"},
+  {d:"C", fr:"Joli(e)", ph:"zhoh-LEE", nl:"mooi, leuk", gen:"Masculine: Joli · Feminine: Jolie", en:"pretty, nice — related to 'jolly'", sense:"Joli = pretty/cute. For more striking beauty, French uses 'beau/belle'.", t:"adjective"},
+  {d:"C", fr:"Aussi", ph:"oh-SEE", nl:"ook", en:"also, too", t:"adverb"},
+  {d:"C", fr:"Comment ?", ph:"koh-MAHN", nl:"hoe ?", en:"how? — NOT the English word 'comment'", t:"question", w:"false friend ≠ to comment"},
+  {d:"C", fr:"Et", ph:"ay", nl:"en", en:"and — related to 'et cetera'", t:"connector"},
+  {d:"C", fr:"Mais", ph:"may", nl:"maar", en:"but", t:"connector"},
+  {d:"C", fr:"Avec", ph:"ah-VEK", nl:"met", en:"with", t:"preposition"},
+  {d:"C", fr:"Ou", ph:"oo", nl:"of", en:"or (no accent — distinguish from \"où\" = where)", t:"connector"},
+  {d:"C", fr:"Rentrer", ph:"rahn-TRAY", nl:"naar huis gaan", en:"go home — literally \"re-enter\"", t:"verb"},
+  {d:"C", fr:"Sur", ph:"sewr", nl:"op", en:"on — related to 'surface'", t:"preposition", ex:"sur la table"},
+  {d:"C", fr:"Dans", ph:"dahn", nl:"in", en:"in, inside", t:"preposition", ex:"dans la maison"},
+  {d:"C", fr:"Tout le monde", ph:"too luh MOHND", nl:"iedereen", en:"\"all the world\" = everyone — related to 'mundane'", t:"phrase"},
+  {d:"C", fr:"Toujours", ph:"too-ZHOOR", nl:"altijd", en:"always — like \"tous les jours\" (every day)", t:"adverb"},
+  {d:"C", fr:"Regarder", ph:"ruh-gar-DAY", nl:"kijken", en:"watch — related to 'regard'", t:"verb", ex:"regarder le match"},
+  {d:"C", fr:"Manger", ph:"mahn-ZHAY", nl:"eten", en:"eat — like the English word 'manger' (a feeding trough)", t:"verb"},
+  {d:"C", fr:"Écouter", ph:"ay-koo-TAY", nl:"luisteren naar", en:"listen — like 'acoustic'", t:"verb", ex:"écouter le prof"},
+  {d:"C", fr:"Adorer", ph:"ah-doh-RAY", nl:"dol zijn op", en:"related to 'adore'", sense:"Strong liking (\"I adore this song!\"), not necessarily romantic love.", t:"verb"},
+  {d:"C", fr:"Demander", ph:"duh-mahn-DAY", nl:"vragen", en:"ask — NOT 'to demand'", t:"verb", w:"false friend ≠ to demand"},
+  {d:"C", fr:"Donner", ph:"doh-NAY", nl:"geven", en:"give — related to 'donate'", t:"verb"},
+  {d:"C", fr:"Parler", ph:"par-LAY", nl:"praten", en:"speak — related to 'parley' and 'parlance'", t:"verb"},
+  {d:"C", fr:"Détester", ph:"day-tess-TAY", nl:"hekel hebben aan", en:"related to 'detest'", t:"verb"},
+  {d:"C", fr:"Difficile", ph:"dee-fee-SEEL", nl:"moeilijk", en:"related to 'difficult' (synonym of 'dur')", t:"adjective"},
+  {d:"C", fr:"Sauf", ph:"sohf", nl:"behalve", en:"except — like \"save for\"", t:"preposition"},
+  {d:"C", fr:"Souvent", ph:"soo-VAHN", nl:"vaak", en:"often — like 'frequent'", t:"adverb"},
+  {d:"C", fr:"Le jour", ph:"luh zhoor", nl:"de dag", en:"day — related to 'bonjour' and 'journal'", t:"time"},
+  {d:"C", fr:"Pourquoi ?", ph:"poor-KWAH", nl:"waarom ?", en:"why? — literally \"for what\"", t:"question"},
+  {d:"C", fr:"Lire", ph:"leer", nl:"lezen", en:"read — like 'literate' and 'literature'", t:"verb"},
+  {d:"C", fr:"Beaucoup (de)", ph:"boh-KOO (duh)", nl:"veel", en:"a lot, many", t:"adverb", ex:"beaucoup de devoirs"},
+  {d:"C", fr:"Un peu", ph:"uhn puh", nl:"weinig, een beetje", en:"a little, a few", t:"adverb"},
+  {d:"C", fr:"Ensemble", ph:"ahn-SAHM-bluh", nl:"samen", en:"together — English borrows the word 'ensemble'", t:"adverb"},
+  {d:"C", fr:"Le matin", ph:"luh mah-TAN", nl:"de ochtend", en:"morning — related to 'matins' (morning prayers)", t:"time"},
+  {d:"C", fr:"L'après-midi", ph:"lah-preh mee-DEE", nl:"de middag", en:"afternoon — literally \"after midday\"", t:"time"},
+  {d:"C", fr:"Le soir", ph:"luh swahr", nl:"de avond", en:"evening — related to 'soirée'", t:"time"},
+  {d:"C", fr:"Je voudrais", ph:"zhuh voo-DRAY", nl:"ik zou graag willen", en:"I would like", t:"phrase", ex:"Je voudrais un stylo."},
+  {d:"C", fr:"Beau, belle", ph:"boh / bell", nl:"mooi", gen:"Masculine: Beau · Feminine: Belle", en:"beautiful — related to 'belle of the ball'", sense:"Beau/belle = striking, beautiful. For pretty/cute use 'joli(e)'.", t:"adjective"},
+  {d:"C", fr:"Calme", ph:"kalm", nl:"rustig", en:"related to 'calm'", t:"adjective"},
+  {d:"C", fr:"Arriver", ph:"ah-ree-VAY", nl:"aankomen", en:"related to 'arrive'", t:"verb"},
+  {d:"C", fr:"À demain", ph:"ah duh-MAN", nl:"tot morgen", en:"see you tomorrow — literally \"till tomorrow\"", t:"phrase"},
+  {d:"C", fr:"Excuse-moi", ph:"ex-KEWZ mwah", nl:"sorry", en:"related to 'excuse me'", t:"phrase"},
+  {d:"C", fr:"C'est vrai", ph:"say vray", nl:"het is waar", en:"it's true — related to 'verify' and 'very'", t:"phrase"},
+  {d:"C", fr:"C'est possible", ph:"say poh-SEE-bluh", nl:"het is mogelijk", en:"it's possible", t:"phrase"},
+  {d:"C", fr:"On va", frHint:"(aller)", ph:"ohn vah", nl:"we gaan", inf:"Infinitive (dictionary) form: aller — to go", en:"we go (\"on\" = informal we)", t:"phrase"},
+  {d:"C", fr:"Heureusement", ph:"uh-ruhz-MAHN", nl:"gelukkig", en:"luckily — from \"heureux\" = happy", t:"adverb"},
+  {d:"C", fr:"Rencontrer", ph:"rahn-kohn-TRAY", nl:"ontmoeten", en:"meet — like \"re-encounter\"", t:"verb"},
+  {d:"C", fr:"Autre", ph:"OH-truh", nl:"ander", en:"other — related to 'alter' and 'alternative'", t:"adjective"},
+  {d:"C", fr:"Tu viens", frHint:"(venir)", ph:"tew vyan", nl:"jij komt", inf:"Infinitive (dictionary) form: venir — to come", en:"you come — related to 'advent' and 'intervene'", t:"phrase"},
+  {d:"C", fr:"Je vais", frHint:"(aller)", ph:"zhuh vay", nl:"ik ga", inf:"Infinitive (dictionary) form: aller — to go (irregular)", en:"I go", t:"phrase"},
+  {d:"C", fr:"Dernier, dernière", ph:"dehr-NYAY / dehr-NYAIR", nl:"laatste, vorige", gen:"Masculine: Dernier · Feminine: Dernière", en:"last, previous", t:"adjective"},
+  {d:"C", fr:"Préféré", ph:"pray-fay-RAY", nl:"lievelings-", en:"related to 'preferred', favourite", t:"adjective", ex:"mon chien préféré"},
+  {d:"C", fr:"Le mot", ph:"luh moh", nl:"het woord", en:"word — related to 'motto'", t:"school"},
+  {d:"C", fr:"Malade", ph:"mah-LAHD", nl:"ziek", en:"ill, sick — related to 'malady'", t:"adjective"},
+  {d:"C", fr:"Oublier", ph:"oo-blee-AY", nl:"vergeten", en:"forget — related to 'oblivion'", t:"verb"},
+  {d:"C", fr:"La salle", ph:"lah sahl", nl:"het klaslokaal", en:"room, hall — related to 'salon'", t:"school"},
+  {d:"C", fr:"Ensuite", ph:"ahn-SWEET", nl:"vervolgens", en:"next, then — like \"en suite\"", t:"adverb"},
+  {d:"C", fr:"Presque", ph:"PRESS-kuh", nl:"bijna", en:"almost, nearly", t:"adverb"},
+  {d:"C", fr:"Je peux", ph:"zhuh puh", nl:"ik kan, ik mag", inf:"Infinitive (dictionary) form: pouvoir — to be able to", en:"I can, I may", t:"phrase"},
+  {d:"C", fr:"Comme", ph:"kom", nl:"zoals", en:"like, as", t:"adverb", ex:"grand comme une maison"},
+  {d:"C", fr:"Demi", ph:"duh-MEE", nl:"half", en:"half — related to 'demigod' and 'demitasse'", t:"adjective"},
+  {d:"C", fr:"Trop", ph:"troh", nl:"te, teveel", en:"too, too much", t:"adverb"},
+  {d:"C", fr:"Dur", ph:"dewr", nl:"moeilijk (= difficile)", en:"hard — related to 'durable' and 'endure'", sense:"Means difficult (same as 'difficile') AND physically hard.", t:"adjective"},
+  {d:"C", fr:"Libre", ph:"LEE-bruh", nl:"vrij", en:"free — related to 'liberty'", sense:"Free as in liberty, free time, available. NOT \"free of charge\" (that's 'gratuit').", t:"adjective"},
+  {d:"C", fr:"Depuis", ph:"duh-PWEE", nl:"sinds", en:"since, for (a length of time)", t:"preposition"},
+  {d:"C", fr:"Vivre", ph:"VEE-vruh", nl:"leven, wonen", en:"live — related to 'vivacious' and 'survive'", t:"verb"},
+  {d:"C", fr:"Faire du vélo", ph:"fair dew vay-LOH", nl:"fietsen", en:"to cycle (literally \"do bicycle\")", t:"phrase"},
+  {d:"C", fr:"La semaine prochaine", ph:"lah suh-MEN proh-SHEN", nl:"de volgende week", en:"next week — 'prochaine' related to 'approach'", t:"time"},
+  {d:"C", fr:"Le rêve", ph:"luh rev", nl:"de droom", en:"dream — related to 'reverie'", t:"phrase"},
+  {d:"C", fr:"Au fond", ph:"oh fohn", nl:"achterin", en:"at the back, at the bottom — related to 'profound' and 'foundation'", t:"direction"},
+  {d:"C", fr:"Gagner", ph:"gahn-YAY", nl:"winnen, verdienen", en:"related to 'gain'", sense:"Two senses: win (a match, a prize) AND earn (money, wages).", t:"verb"},
+  {d:"C", fr:"La femme", ph:"lah fahm", nl:"de vrouw", en:"woman — related to 'feminine'", t:"people"},
+  {d:"C", fr:"L'homme", ph:"lom", nl:"de man", en:"man — related to 'human' and 'homo sapiens'", t:"people"},
+  {d:"C", fr:"Porter", ph:"por-TAY", nl:"dragen", en:"carry, wear — related to 'portable' and 'porter'", t:"verb"},
+  {d:"C", fr:"Changer", ph:"shahn-ZHAY", nl:"veranderen", en:"related to 'change'", t:"verb"},
+  {d:"C", fr:"Cher, chère", ph:"shair", nl:"duur", gen:"Masculine: Cher · Feminine: Chère", en:"expensive — related to 'cherish'", sense:"Means expensive here. Also means \"dear\" (cher ami = dear friend).", t:"adjective"},
+  {d:"C", fr:"Quelque chose", ph:"KEL-kuh shohz", nl:"iets", en:"something — literally \"some thing\"", t:"pronoun"},
+
+  // ---------- New in Unité 6 (Core) ----------
+  {d:"C", fr:"Froid", ph:"frwah", nl:"koud", en:"cold — related to 'frigid' and 'fridge'", t:"adjective", ex:"Il fait froid."},
+  {d:"C", fr:"Chaud", ph:"shoh", nl:"warm", en:"hot, warm — related to 'cauldron' and 'calorie'", t:"adjective", ex:"Le pain est chaud."},
+
+  // ---------- RECOGNITION DECK (FR → NL only) ----------
+  {d:"R", fr:"Le quartier", ph:"luh kar-TYAY", nl:"de wijk", en:"neighbourhood, district", t:"town", w:"false friend ≠ a quarter coin"},
+  {d:"R", fr:"L'école", ph:"lay-KOHL", nl:"de school", en:"related to 'school' and 'scholar'", t:"school"},
+  {d:"R", fr:"Le pays", ph:"luh pay-EE", nl:"het land", en:"country — related to 'paysage' (landscape)", t:"town"},
+  {d:"R", fr:"La ville", ph:"lah veel", nl:"de stad", en:"city — related to 'village'", t:"town"},
+  {d:"R", fr:"Là-bas", ph:"lah-BAH", nl:"daar", en:"over there", t:"direction"},
+  {d:"R", fr:"Ici", ph:"ee-SEE", nl:"hier", en:"here", t:"direction"},
+  {d:"R", fr:"Loin", ph:"lwan", nl:"ver weg", en:"far away", t:"direction"},
+  {d:"R", fr:"Près", ph:"preh", nl:"dichtbij", en:"near — like \"pressed close\"", t:"direction"},
+  {d:"R", fr:"Maintenant", ph:"man-tuh-NAHN", nl:"nu", en:"now — literally \"main-tenant\" (currently holding)", t:"time"},
+  {d:"R", fr:"Meilleur", ph:"may-YUR", nl:"beste", en:"best — related to 'ameliorate' (to improve)", t:"adjective"},
+  {d:"R", fr:"Le chien", ph:"luh shyan", nl:"de hond", en:"dog — related to 'canine'", t:"people"},
+  {d:"R", fr:"La chambre", ph:"lah SHAHM-bruh", nl:"de slaapkamer", en:"bedroom — related to 'chamber' and 'chamber pot'", t:"house"},
+  {d:"R", fr:"Quel(le)", ph:"kell", nl:"welke", gen:"Masculine: Quel · Feminine: Quelle", en:"which? what?", t:"question"},
+  {d:"R", fr:"À pied", ph:"ah pyay", nl:"lopend", en:"on foot — related to 'pedal' and 'pedestrian'", t:"direction"},
+  {d:"R", fr:"Bon, bonne", ph:"bohn / bun", nl:"goed, lekker", gen:"Masculine: Bon · Feminine: Bonne", en:"good, tasty — related to 'bon-bon' and 'bonus'", t:"adjective"},
+  {d:"R", fr:"Attends !", frHint:"(attendre)", ph:"ah-TAHN", nl:"wacht !", inf:"Infinitive (dictionary) form: attendre — to wait", en:"wait! — related to 'attend' (wait on)", t:"verb"},
+  {d:"R", fr:"Le voisin", ph:"luh vwah-ZAN", nl:"de buurman", en:"neighbour — from 'vois' (see); someone you see often", t:"people"},
+  {d:"R", fr:"Dimanche", ph:"dee-MAHNSH", nl:"zondag", en:"Sunday — from Latin \"dies dominica\" = Lord's day", t:"time"},
+  {d:"R", fr:"L'anglais", ph:"lahn-GLAY", nl:"Engels", en:"English (language)", t:"school"},
+  {d:"R", fr:"Le français", ph:"luh frahn-SAY", nl:"Frans", en:"French (language)", t:"school"},
+  {d:"R", fr:"L'allemand", ph:"lal-MAHN", nl:"Duits", en:"German — like 'allemande' (a German dance)", t:"school"},
+  {d:"R", fr:"L'histoire", ph:"lee-STWAHR", nl:"Geschiedenis", en:"related to 'history'", t:"school"},
+  {d:"R", fr:"La note", ph:"lah noht", nl:"het cijfer", en:"grade, mark — NOT a written note!", t:"school", w:"false friend ≠ a note you write"},
+  {d:"R", fr:"Les devoirs", ph:"lay duh-VWAHR", nl:"het huiswerk", en:"homework — 'devoir' = duty", t:"school"},
+  {d:"R", fr:"L'ordinateur", ph:"lor-dee-nah-TUR", nl:"de computer", en:"computer (one that puts things in order)", t:"school"},
+  {d:"R", fr:"Travailler", ph:"trah-vah-YAY", nl:"werken", en:"work — related to 'travail' (hard work)", t:"verb"},
+  {d:"R", fr:"Commencer", ph:"koh-mahn-SAY", nl:"beginnen", en:"related to 'commence'", t:"verb"},
+  {d:"R", fr:"Dessiner", ph:"deh-see-NAY", nl:"tekenen", en:"draw — related to 'design'", t:"verb"},
+  {d:"R", fr:"La matière", ph:"lah mah-TYAIR", nl:"het schoolvak", en:"school subject — like \"subject matter\"", t:"school"},
+  {d:"R", fr:"Il doit", frHint:"(devoir)", ph:"eel dwah", nl:"hij moet", inf:"Infinitive (dictionary) form: devoir — must, to have to", en:"he must — 'devoir' also means \"duty\"", t:"verb"},
+  {d:"R", fr:"Dangereux", ph:"dahn-zhuh-RUH", nl:"gevaarlijk", en:"related to 'dangerous'", t:"adjective"},
+  {d:"R", fr:"J'ai peur", frHint:"(avoir peur)", ph:"zhay pur", nl:"ik ben bang", inf:"From the expression: avoir peur — to be afraid (literally \"to have fear\")", en:"'peur' related to 'peril'", t:"phrase"},
+  {d:"R", fr:"Le match", ph:"luh mahtch", nl:"de wedstrijd", en:"match (sports)", t:"town"},
+  {d:"R", fr:"L'escalier", ph:"less-kah-LYAY", nl:"de trap", en:"stairs — related to 'escalator'", t:"house"},
+  {d:"R", fr:"L'arrêt de bus", ph:"lah-RAY duh boos", nl:"de bushalte", en:"bus stop — 'arrêt' related to 'arrest' (to stop)", t:"town"},
+  {d:"R", fr:"La circulation", ph:"lah seer-kew-lah-SYOHN", nl:"het verkeer", en:"traffic — related to 'circulation'", t:"town"},
+  {d:"R", fr:"En face de", ph:"ahn fahs duh", nl:"tegenover", en:"opposite, facing — literally \"in face of\"", t:"direction"},
+  {d:"R", fr:"Le coin", ph:"luh kwan", nl:"de hoek", en:"corner — NOT a metal coin!", t:"town", w:"false friend ≠ a coin"},
+  {d:"R", fr:"La boulangerie", ph:"lah boo-lahn-zhuh-REE", nl:"de bakkerij", en:"bakery — from 'boule' (ball of dough)", t:"shops"},
+  {d:"R", fr:"Premier", ph:"pruh-MYAY", nl:"eerste", en:"first — related to 'premier' and 'premiere'", t:"adjective"},
+  {d:"R", fr:"Deuxième", ph:"duh-ZYEM", nl:"tweede", en:"second — built from 'deux' + 'ième'", t:"adjective"},
+  {d:"R", fr:"Troisième", ph:"trwah-ZYEM", nl:"derde", en:"third — built from 'trois' + 'ième'", t:"adjective"},
+  {d:"R", fr:"Déménager", ph:"day-may-nah-ZHAY", nl:"verhuizen", en:"move house — \"un-house\" yourself ('ménage' = household)", t:"verb"},
+  {d:"R", fr:"Propre", ph:"PROH-pruh", nl:"eigen", en:"one's own — related to 'proper' and 'property'", sense:"On this card means \"own\". Note: propre also means \"clean\" in other contexts.", t:"adjective", ex:"mon propre lit"},
+  {d:"R", fr:"Bleu", ph:"bluh", nl:"blauw", en:"related to 'blue'", t:"color"},
+  {d:"R", fr:"Blanc", ph:"blahn", nl:"wit", en:"white — related to 'blank'", t:"color"},
+  {d:"R", fr:"Rouge", ph:"roozh", nl:"rood", en:"red — related to 'rouge' (cheek red)", t:"color"},
+  {d:"R", fr:"Jusqu'à", ph:"zhew-SKAH", nl:"tot aan", en:"until, up to", t:"preposition"},
+  {d:"R", fr:"La vue", ph:"lah vew", nl:"het uitzicht", en:"view — related to 'visual'", t:"house"},
+  {d:"R", fr:"Même", ph:"mem", nl:"zelfs, zelf", en:"even; same", t:"adverb"},
+  {d:"R", fr:"Oui", ph:"wee", nl:"ja", en:"yes", t:"phrase"},
+  {d:"R", fr:"Non", ph:"nohn", nl:"nee", en:"no", t:"phrase"},
+  {d:"R", fr:"Le garçon", ph:"luh gar-SOHN", nl:"de jongen", en:"boy; also waiter", t:"people"},
+  {d:"R", fr:"La fille", ph:"lah FEE-yuh", nl:"het meisje, de dochter", en:"girl, daughter — related to 'filial'", t:"people"},
+  {d:"R", fr:"L'enfant", ph:"lahn-FAHN", nl:"het kind", en:"child — related to 'infant'", t:"people"},
+  {d:"R", fr:"Les parents", ph:"lay pah-RAHN", nl:"de ouders", en:"related to 'parents'", t:"people"},
+  {d:"R", fr:"Le père", ph:"luh pair", nl:"de vader", en:"father — related to 'paternal'", t:"people"},
+  {d:"R", fr:"La mère", ph:"lah mair", nl:"de moeder", en:"mother — related to 'maternal'", t:"people"},
+  {d:"R", fr:"Le fils", ph:"luh feess", nl:"de zoon", en:"son — related to 'filial'", t:"people"},
+  {d:"R", fr:"Seul(e)", ph:"suhl", nl:"alleen", gen:"Masculine: Seul · Feminine: Seule", en:"alone — related to 'sole' and 'solo'", t:"adjective"},
+  {d:"R", fr:"Chez nous", ph:"shay noo", nl:"bij ons thuis", en:"at our place (English borrows 'chez' for restaurant names)", t:"phrase"},
+  {d:"R", fr:"Le/la prof", ph:"luh / lah proff", nl:"de docent", en:"teacher — short for 'professeur'", t:"school"},
+  {d:"R", fr:"L'élève", ph:"lay-LEV", nl:"de leerling", en:"pupil, student — related to 'elevate' (raise up in knowledge)", t:"school"},
+  {d:"R", fr:"Le stylo", ph:"luh stee-LOH", nl:"de pen", en:"pen — related to 'stylus'", t:"school"},
+  {d:"R", fr:"Apprendre", ph:"ah-PRAHN-druh", nl:"leren", en:"learn — related to 'apprehend' and 'apprentice'", t:"verb"},
+  {d:"R", fr:"Préférer", ph:"pray-fay-RAY", nl:"liever hebben", en:"related to 'prefer'", t:"verb"},
+  {d:"R", fr:"Jouer", ph:"zhoo-AY", nl:"spelen", en:"to play", t:"verb"},
+  {d:"R", fr:"Le cahier", ph:"luh kah-YAY", nl:"het schrift", en:"exercise book, notebook", t:"school"},
+  {d:"R", fr:"Qui ?", ph:"kee", nl:"wie ?", en:"who?", t:"question", ex:"Qui est le prof ?"},
+  {d:"R", fr:"Nouveau, nouvelle", ph:"noo-VOH / noo-VELL", nl:"nieuw", gen:"Masculine: Nouveau · Feminine: Nouvelle", en:"new — related to 'novel' and 'novelty'", t:"adjective"},
+  {d:"R", fr:"La maison", ph:"lah may-ZOHN", nl:"het huis", en:"house — related to 'mansion'", t:"house"},
+  {d:"R", fr:"Présenter", ph:"pray-zahn-TAY", nl:"voorstellen", en:"introduce, present (someone)", t:"verb"},
+  {d:"R", fr:"Fort en", ph:"for ahn", nl:"goed in", en:"good at — literally \"strong/fortified in\"", t:"phrase"},
+  {d:"R", fr:"Nul en", ph:"newl ahn", nl:"slecht in", en:"bad at — literally \"null/zero in\"", t:"phrase"},
+  {d:"R", fr:"Le cours", ph:"luh koor", nl:"de les", en:"class, course (lesson) — related to 'course'", t:"school"},
+  {d:"R", fr:"Qu'est-ce que… ?", ph:"kess-kuh", nl:"wat… ?", en:"what...? — literally \"what is it that...?\"", t:"question"},
+  {d:"R", fr:"Tout", ph:"too", nl:"alles", en:"everything — related to 'total'", t:"pronoun"},
+  {d:"R", fr:"La langue", ph:"lah lahng", nl:"de taal", en:"language, tongue — related to 'linguistics'", t:"school"},
+  {d:"R", fr:"Comprendre", ph:"kohm-PRAHN-druh", nl:"begrijpen", en:"understand — related to 'comprehend'", t:"verb"},
+  {d:"C", fr:"Le repas", ph:"luh ruh-PAH", nl:"de maaltijd", en:"meal — related to 'repast'", t:"food"},
+  {d:"R", fr:"Déjeuner", ph:"day-zhuh-NAY", nl:"lunchen", en:"have lunch — literally \"un-fast\" (like English 'break-fast')", t:"food"},
+  {d:"R", fr:"Midi", ph:"mee-DEE", nl:"12 uur 's middags", en:"midday, noon", t:"time"},
+  {d:"R", fr:"Minuit", ph:"mee-NWEE", nl:"12 uur 's nachts", en:"midnight (literally \"mid-night\")", t:"time"},
+  {d:"R", fr:"Aujourd'hui", ph:"oh-zhoor-DWEE", nl:"vandaag", en:"today — literally \"on the day of today\"", t:"time"},
+  {d:"R", fr:"Quand ?", ph:"kahn", nl:"wanneer ?", en:"when?", t:"question"},
+  {d:"R", fr:"Combien ?", ph:"kohm-BYAN", nl:"hoeveel ?", en:"how much, how many?", t:"question"},
+  {d:"R", fr:"La cuisine", ph:"lah kwee-ZEEN", nl:"de keuken", en:"kitchen — related to 'cuisine'", t:"house"},
+  {d:"R", fr:"La fenêtre", ph:"lah fuh-NEH-truh", nl:"het raam", en:"window — related to 'defenestrate' (to throw out the window)", t:"house"},
+  {d:"R", fr:"La chaise", ph:"lah shez", nl:"de stoel", en:"chair — related to 'chaise longue'", t:"house"},
+  {d:"R", fr:"La table", ph:"lah TAH-bluh", nl:"de tafel", en:"related to 'table'", t:"house"},
+  {d:"R", fr:"Le lit", ph:"luh lee", nl:"het bed", en:"bed — like 'litter' (sleeping straw bedding)", t:"house"},
+  {d:"R", fr:"La voiture", ph:"lah vwah-TEWR", nl:"de auto", en:"car — like 'vehicle'", t:"town"},
+  {d:"R", fr:"Le centre-ville", ph:"luh sahn-truh-VEEL", nl:"het stadscentrum", en:"city centre", t:"town"},
+  {d:"R", fr:"Le magasin", ph:"luh mah-gah-ZAN", nl:"de winkel", en:"shop, store — NOT a magazine!", t:"shops", w:"false friend ≠ a magazine"},
+  {d:"R", fr:"Ouvert", frHint:"(ouvrir)", ph:"oo-VAIR", nl:"open, geopend", inf:"Past participle of the verb: ouvrir — to open", en:"open — related to 'overt' and 'overture'", t:"adjective"},
+  {d:"R", fr:"Le supermarché", ph:"luh sew-pair-mar-SHAY", nl:"de supermarkt", en:"supermarket", t:"shops"},
+  {d:"R", fr:"La plage", ph:"lah plahzh", nl:"het strand", en:"beach — like Spanish 'playa'", t:"town"},
+  {d:"R", fr:"Monter", ph:"mohn-TAY", nl:"naar boven gaan", en:"go up — related to 'mount' (ascend)", t:"verb"},
+  {d:"R", fr:"Descendre", ph:"deh-SAHN-druh", nl:"naar beneden gaan", en:"related to 'descend'", t:"verb"},
+  {d:"R", fr:"Il faut", ph:"eel foh", nl:"je moet, het is nodig", en:"it is necessary, one must", t:"phrase"},
+  {d:"R", fr:"La chose", ph:"lah shohz", nl:"het ding (le truc)", en:"thing", t:"pronoun"},
+  {d:"R", fr:"Chercher", ph:"shair-SHAY", nl:"zoeken", en:"search for — related to 'research'", t:"verb"},
+  {d:"R", fr:"Passer", ph:"pah-SAY", nl:"doorbrengen", en:"spend (time) — like \"pass time\"", t:"verb"},
+  {d:"R", fr:"Dommage", ph:"doh-MAHZH", nl:"jammer", en:"what a pity — literally \"damage\"", t:"phrase"},
+  {d:"R", fr:"À gauche", ph:"ah gohsh", nl:"linksaf", en:"to the left — related to 'gauche' (awkward, left-handed)", t:"direction"},
+  {d:"R", fr:"À droite", ph:"ah drwaht", nl:"rechtsaf", en:"to the right — related to 'adroit' (skillful, right-handed)", t:"direction"},
+  {d:"R", fr:"Tout droit", ph:"too drwah", nl:"rechtdoor", en:"straight ahead", t:"direction"},
+  {d:"R", fr:"La place", ph:"lah plahs", nl:"de plaats, het plein", en:"related to 'place', square", t:"town"},
+  {d:"R", fr:"Clair", ph:"klair", nl:"licht, helder", en:"related to 'clear'", sense:"\"Light\" as in bright/not dark, or \"clear\" as in easy to understand. NOT \"light\" as in weight.", t:"adjective"},
+  {d:"R", fr:"Pour", ph:"poor", nl:"om te, voor", en:"for, in order to", t:"preposition"},
+  {d:"R", fr:"Le frigo", ph:"luh free-GOH", nl:"de ijskast", en:"fridge — from 'frigidaire'", t:"house"},
+  {d:"R", fr:"Le four", ph:"luh foor", nl:"de oven", en:"oven — related to 'furnace'", t:"house"},
+  {d:"R", fr:"Doux", ph:"doo", nl:"zacht", en:"soft, gentle — related to 'dulcet'", t:"adjective"},
+  {d:"R", fr:"L'habitant", ph:"lah-bee-TAHN", nl:"de inwoner", en:"related to 'inhabitant'", t:"people"},
+  {d:"R", fr:"La dispute", ph:"lah dee-SPEWT", nl:"de ruzie", en:"argument — related to 'dispute'", t:"house"},
+  {d:"R", fr:"Les vêtements", ph:"lay vet-MAHN", nl:"de kleren", en:"clothes — related to 'vestments'", t:"clothing"},
+  {d:"R", fr:"La robe", ph:"lah rohb", nl:"de jurk", en:"dress — NOT a bathrobe!", t:"clothing", w:"false friend ≠ a bathrobe"},
+  {d:"R", fr:"La chaussure", ph:"lah shoh-SEWR", nl:"de schoen", en:"shoe — from 'chausses' (footwear)", t:"clothing"},
+  {d:"R", fr:"Les lunettes", ph:"lay lew-NETT", nl:"de bril", en:"glasses — literally \"little moons\" (from 'lune' = moon)", t:"clothing"},
+  {d:"R", fr:"Le chapeau", ph:"luh shah-POH", nl:"de hoed", en:"hat — English borrows 'chapeau'", t:"clothing"},
+  {d:"R", fr:"Choisir", ph:"shwah-ZEER", nl:"kiezen", en:"to choose", t:"verb"},
+  {d:"R", fr:"Commander", ph:"koh-mahn-DAY", nl:"bestellen", en:"order (food) — related to 'command'", t:"verb"},
+  {d:"R", fr:"Par exemple", ph:"par eg-ZAHM-pluh", nl:"bijvoorbeeld", en:"for example", t:"phrase"},
+
+  // ---------- New in Unité 6 (Recognition) ----------
+  {d:"R", fr:"Bon appétit", ph:"bohn ah-pay-TEE", nl:"eet smakelijk", en:"enjoy your meal — literally \"good appetite\"; English borrows the phrase", t:"food"},
+  {d:"R", fr:"Avoir faim", ph:"ah-VWAHR fan", nl:"honger hebben", inf:"From the expression: avoir faim — to be hungry", en:"\"to have hunger\" — 'faim' related to 'famine'", t:"phrase"},
+  {d:"R", fr:"Avoir soif", ph:"ah-VWAHR swahf", nl:"dorst hebben", inf:"From the expression: avoir soif — to be thirsty", en:"literally \"to have thirst\"", t:"phrase"},
+  {d:"R", fr:"Le fromage", ph:"luh froh-MAHZH", nl:"de kaas", en:"cheese — English borrows 'fromage' in cooking", t:"food"},
+  {d:"R", fr:"La viande", ph:"lah vyahnd", nl:"het vlees", en:"meat — like 'viand' (an old English word for food)", t:"food"},
+  {d:"R", fr:"Le pain", ph:"luh pan", nl:"het brood", en:"bread — related to 'pantry' and 'companion' (literally \"one who shares bread\")", t:"food"},
+  {d:"R", fr:"L'eau", ph:"loh", nl:"het water", en:"water — related to 'aqua' and 'aquatic'", t:"food"},
+  {d:"R", fr:"La glace", ph:"lah glahss", nl:"het ijs", en:"related to 'glacier' and 'glacial'", sense:"Means both \"ice\" and \"ice cream\" depending on context.", t:"food"},
+  {d:"R", fr:"Le plat", ph:"luh plah", nl:"het gerecht", en:"dish (a meal/course) — related to 'plate'", sense:"Means the dish/course (food). NOT the physical plate (= l'assiette).", t:"food"},
+  {d:"R", fr:"Laver", ph:"lah-VAY", nl:"wassen", en:"wash — related to 'lavatory' (washing place) and 'lavender'", t:"verb"},
+  {d:"R", fr:"Le jambon", ph:"luh zhahn-BOHN", nl:"de ham", en:"ham — English chef-speak uses 'jambon'", t:"food"},
+  {d:"R", fr:"La confiture", ph:"lah kohn-fee-TEWR", nl:"de jam", en:"jam — related to 'confection' and 'confectionery'", t:"food"},
+  {d:"R", fr:"Le lait", ph:"luh lay", nl:"de melk", en:"milk — related to 'lactose' and 'lactic'", t:"food"},
+  {d:"R", fr:"La salade", ph:"lah sah-LAHD", nl:"de salade", en:"related to 'salad'", t:"food"},
+  {d:"R", fr:"Vite", ph:"veet", nl:"snel", en:"fast, quickly", t:"adverb"},
+  {d:"R", fr:"Facile", ph:"fah-SEEL", nl:"makkelijk", en:"easy — related to English 'facile' (easy/superficial)", t:"adjective"},
+  {d:"R", fr:"Je prends", ph:"zhuh prahn", nl:"ik neem", inf:"Infinitive (dictionary) form: prendre — to take", en:"I take — related to 'apprehend'", t:"phrase", ex:"Je prends le pain."},
+  {d:"R", fr:"Le verre", ph:"luh vair", nl:"het glas", en:"drinking glass (or the material)", sense:"Means a drinking glass / the material. NOT window glass (= la vitre).", t:"food"},
+  {d:"R", fr:"Payer", ph:"pay-YAY", nl:"betalen", en:"related to 'pay'", t:"verb"},
+  {d:"R", fr:"Il fait beau", ph:"eel fay boh", nl:"het is mooi weer", en:"the weather is nice — literally \"it makes beautiful\"", t:"phrase"},
+  {d:"R", fr:"Le printemps", ph:"luh PRAN-tahn", nl:"het voorjaar", en:"spring (season) — literally \"first time\" (prin + temps)", t:"time"},
+  {d:"R", fr:"C'est mieux", ph:"say myuh", nl:"het is beter", en:"it's better — 'mieux' related to 'meilleur' (best)", t:"phrase"},
+  {d:"R", fr:"Penser", ph:"pahn-SAY", nl:"denken", en:"think — related to 'pensive' (thoughtful)", t:"verb"},
+  {d:"R", fr:"Délicieux", ph:"day-lee-SYUH", nl:"heerlijk", en:"related to 'delicious'", t:"adjective"},
+  {d:"R", fr:"Ce soir", ph:"suh swahr", nl:"vanavond", en:"tonight, this evening — literally \"this evening\"", t:"time"},
+  {d:"R", fr:"Hier", ph:"yair", nl:"gisteren", en:"yesterday", sense:"Spelled like English \"here\" but pronounced [yair] and means \"yesterday\".", t:"time"},
+  {d:"R", fr:"La nourriture", ph:"lah noo-ree-TEWR", nl:"het eten", en:"food — related to 'nourish' and 'nourishment'", t:"food"},
+  {d:"R", fr:"La santé", ph:"lah sahn-TAY", nl:"de gezondheid", en:"health — related to 'sanitary'", t:"people"},
+  {d:"R", fr:"Mignon", ph:"mee-NYOHN", nl:"schattig", en:"cute, sweet — like 'filet mignon' (a dainty steak)", t:"adjective"},
+  {d:"R", fr:"Seulement", ph:"suhl-MAHN", nl:"alleen maar", en:"only — built from 'seul' (alone) + suffix '-ment' (like English -ly)", t:"adverb"}
+];
+
+// ============================================================
+// Rendering
+// ============================================================
+function esc(s) {
+  if (s == null) return "";
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function renderCard(w, idx) {
+  const cls = w.d === "C" ? "core" : "recog";
+  const dirIcon = w.d === "C" ? "⇄" : "→";
+  const num = (w.d === "C" ? "C" : "R") + (idx + 1);
+  return `
+    <div class="card ${cls}">
+      <div class="half front">
+        <span class="meta-tr">${dirIcon}</span>
+        <span class="meta-bl">${num}</span>
+        <div class="fr">${esc(w.fr)}</div>
+        ${w.frHint ? `<div class="fr-hint">${esc(w.frHint)}</div>` : ""}
+        ${w.ph ? `<div class="phon">[${esc(w.ph)}]</div>` : ""}
+      </div>
+      <div class="half back">
+        <span class="meta-bl">${esc(w.t)}</span>
+        <span class="meta-br">${num}</span>
+        <div class="nl">${esc(w.nl)}</div>
+        ${w.gen ? `<div class="grammar">${esc(w.gen)}</div>` : ""}
+        ${w.inf ? `<div class="grammar">${esc(w.inf)}</div>` : ""}
+        ${w.en ? `<div class="en">${esc(w.en)}</div>` : ""}
+        ${w.ex ? `<div class="example">"${esc(w.ex)}"</div>` : ""}
+        ${w.sense ? `<div class="sense">ℹ ${esc(w.sense)}</div>` : ""}
+        ${w.w ? `<div class="warn">⚠ ${esc(w.w)}</div>` : ""}
+      </div>
+    </div>
+  `;
+}
+
+function render() {
+  const root = document.getElementById("cards");
+  const cardsPerPage = 6;
+  let html = "";
+
+  const core = data.filter(w => w.d === "C");
+  const recog = data.filter(w => w.d === "R");
+
+  const renderDeckSection = (deckCards, deckKey, title, lead) => {
+    let out = `
+      <div class="deck-header">
+        <span class="badge ${deckKey}">${deckKey === "core" ? "Core deck ⇄" : "Recognition deck →"}</span>
+        <h1>${title}</h1>
+        <p class="lead">${lead}</p>
+      </div>
+    `;
+    for (let i = 0; i < deckCards.length; i += cardsPerPage) {
+      const chunk = deckCards.slice(i, i + cardsPerPage);
+      out += `<div class="page">${chunk.map((w, j) => renderCard(w, i + j)).join("")}</div>`;
+    }
+    return out;
+  };
+
+  html += renderDeckSection(core, "core",
+    "Core deck — bidirectional (NL ↔ FR)",
+    `${core.length} cards. These words must be produced in French as well as recognised. Practice each card both ways: cover the French, say it from the Dutch; then cover the Dutch, say it from the French. Higher priority — give these about 60% of your study time.`);
+
+  html += renderDeckSection(recog, "recog",
+    "Recognition deck — one-way (FR → NL)",
+    `${recog.length} cards. You only need to recognise the French and translate to Dutch — no production required. Focus on getting the Dutch out quickly when you see the French.`);
+
+  root.innerHTML = html;
+}
+
+render();
+</script>
+
+</body>
+</html>

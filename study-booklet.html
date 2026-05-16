@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>French Study Booklet — Unités 1–6</title>
+<style>
+  @page { size: A4 portrait; margin: 16mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; padding: 0; color: #222; line-height: 1.45; }
+  .toolbar { position: sticky; top: 0; background: #2a3144; color: #fff; padding: 10px 16px; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 100; }
+  .toolbar button { background: #ffb84a; color: #222; border: none; padding: 8px 14px; font-size: 14px; font-weight: 600; border-radius: 4px; cursor: pointer; }
+  .toolbar button:hover { background: #ffc66c; }
+  h1, h2, h3, h4 { color: #2a3144; margin-top: 0; }
+  .cover { padding: 14mm; page-break-after: always; }
+  .cover h1 { font-size: 26pt; margin-bottom: 4mm; }
+  .cover .sub { font-size: 12pt; color: #555; margin-bottom: 8mm; }
+  .toc { padding: 10mm 14mm; page-break-after: always; }
+  .toc h1 { font-size: 18pt; margin-bottom: 4mm; }
+  .toc ol { font-size: 11pt; line-height: 1.7; padding-left: 6mm; }
+  .toc li { margin-bottom: 0.5mm; }
+  .toc li .theme-fr { color: #666; font-style: italic; font-size: 10pt; }
+  .intro { padding: 10mm 14mm; page-break-after: always; }
+  .intro h1 { font-size: 18pt; margin-bottom: 4mm; }
+  .intro p, .intro li { font-size: 10.5pt; line-height: 1.5; }
+  .intro ul, .intro ol { padding-left: 6mm; }
+  .theme { padding: 10mm 14mm; page-break-before: always; }
+  .theme-num { display: inline-block; background: #2a3144; color: white; padding: 1mm 3mm; border-radius: 2mm; font-size: 10pt; font-weight: 600; margin-right: 3mm; vertical-align: middle; }
+  .theme h1 { font-size: 18pt; margin: 0 0 1mm; display: inline-block; vertical-align: middle; }
+  .theme h1 .fr-title { font-style: italic; color: #777; font-weight: 400; font-size: 13pt; margin-left: 3mm; }
+  .theme .lead { font-size: 10.5pt; color: #555; margin: 1mm 0 5mm; }
+  table.words { width: 100%; border-collapse: collapse; margin: 0 0 6mm; font-size: 9.5pt; }
+  table.words th { background: #f1f3f6; text-align: left; padding: 2mm 3mm; border-bottom: 1.5px solid #aaa; color: #2a3144; font-size: 9pt; }
+  table.words td { padding: 1.5mm 3mm; border-bottom: 0.5px solid #e0e0e0; vertical-align: top; }
+  table.words td.fr { font-weight: 600; color: #1a2235; width: 26%; }
+  table.words td.ph { font-style: italic; color: #666; width: 22%; font-size: 9pt; }
+  table.words td.nl { font-weight: 600; width: 24%; color: #1a2235; }
+  table.words td.en { color: #555; font-size: 8.8pt; font-style: italic; }
+  table.words .deck-c { color: #c89432; font-weight: 700; }
+  table.words .deck-r { color: #7a8290; }
+  .story { background: #fffaeb; border-left: 3px solid #c89432; padding: 4mm 5mm; margin: 0 0 6mm; border-radius: 0 1.5mm 1.5mm 0; }
+  .story h3 { font-size: 11pt; margin: 0 0 2mm; color: #8b5a1a; }
+  .story .fr-text { font-size: 10.5pt; line-height: 1.5; margin-bottom: 2mm; color: #1a2235; }
+  .story .nl-text { font-size: 9.5pt; line-height: 1.5; color: #555; font-style: italic; }
+  .practice { background: #f1f7fb; border-left: 3px solid #1f5a8a; padding: 4mm 5mm; margin: 0 0 6mm; border-radius: 0 1.5mm 1.5mm 0; }
+  .practice h3 { font-size: 11pt; margin: 0 0 2mm; color: #1f5a8a; }
+  .practice ol { padding-left: 5mm; margin: 0; font-size: 10pt; line-height: 1.4; }
+  .practice li { margin-bottom: 2mm; }
+  .practice .ans { display: block; color: #999; font-size: 9pt; font-style: italic; margin-top: 0.5mm; }
+  .notes { background: #f7f4ef; border-left: 3px solid #888; padding: 3mm 5mm; margin: 0 0 4mm; border-radius: 0 1.5mm 1.5mm 0; font-size: 9.5pt; line-height: 1.4; }
+  .notes h3 { font-size: 10.5pt; margin: 0 0 2mm; color: #444; }
+  .notes ul { padding-left: 5mm; margin: 0; }
+  .notes li { margin-bottom: 1.5mm; }
+  .warn-inline { color: #b22a2a; font-weight: 600; }
+  .back { padding: 10mm 14mm; page-break-before: always; }
+  .back h1 { font-size: 18pt; }
+  .back h2 { font-size: 13pt; margin-top: 6mm; }
+  .back p, .back li { font-size: 10pt; line-height: 1.5; }
+  .back table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 5mm; }
+  .back table td { padding: 1.5mm 3mm; border-bottom: 0.5px solid #e0e0e0; vertical-align: top; }
+  .back table td:first-child { font-weight: 600; color: #1a2235; width: 28%; }
+  @media screen {
+    body { background: #e6e8ee; padding: 14px; }
+    .cover, .toc, .intro, .theme, .back { background: white; max-width: 210mm; margin: 0 auto 18px; box-shadow: 0 3px 10px rgba(0,0,0,0.12); padding: 14mm; }
+  }
+  @media print { .toolbar { display: none; } body { background: white; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="window.print()">Print / Save as PDF</button>
+  <div>
+    <div style="font-weight:600">French Study Booklet — Unités 1–6</div>
+    <div style="font-size:13px;opacity:0.8">16 themed mini-lessons · designed to be used alongside the flashcards</div>
+  </div>
+</div>
+
+<div class="cover">
+  <h1>French Study Booklet</h1>
+  <div class="sub"><strong>Unités 1–6 — Brugklas vocabulary</strong> · 16 themed mini-lessons · test on 10 June</div>
+  <p>This booklet is the partner to your flashcards. The flashcards build raw word-to-translation recall; this booklet shows you the same words <em>in context</em> — used in real sentences, grouped by topic, with practice to apply them. Each theme takes 10–15 minutes to work through.</p>
+  <h2 style="font-size:13pt;margin-top:8mm">How to use a theme</h2>
+  <ol style="font-size:10.5pt;line-height:1.5">
+    <li><strong>Read the word table.</strong> Skim the French, pronunciation, Dutch. Words marked <span class="deck-c">⇄</span> are Core deck (bidirectional); <span class="deck-r">→</span> are Recognition deck (FR→NL only).</li>
+    <li><strong>Read the mini-story</strong> in French first, then the Dutch translation below. Try to spot every word from the table.</li>
+    <li><strong>Cover the answers</strong> with your hand and try the practice prompts. Then slide your hand down to check.</li>
+    <li><strong>Read the notes</strong> — they're short but high-value (false friends, gender, common mistakes).</li>
+    <li><strong>Return to the flashcards</strong> for that theme and do a Leitner pass.</li>
+  </ol>
+</div>
+
+<div class="toc">
+  <h1>Table of contents</h1>
+  <ol>
+    <li>Introductions <span class="theme-fr">— Présentations</span></li>
+    <li>Family & people <span class="theme-fr">— La famille et les gens</span></li>
+    <li>My house <span class="theme-fr">— À la maison</span></li>
+    <li>School life <span class="theme-fr">— À l'école</span></li>
+    <li>My town <span class="theme-fr">— En ville</span></li>
+    <li>Directions <span class="theme-fr">— Le chemin</span></li>
+    <li>Time & days <span class="theme-fr">— Le temps qui passe</span></li>
+    <li>Asking questions <span class="theme-fr">— Poser des questions</span></li>
+    <li>Food & meals <span class="theme-fr">— La nourriture</span></li>
+    <li>Clothes & colours <span class="theme-fr">— Vêtements et couleurs</span></li>
+    <li>Describing people & things <span class="theme-fr">— Décrire</span></li>
+    <li>Likes & feelings <span class="theme-fr">— Goûts et sentiments</span></li>
+    <li>Doing things — verbs <span class="theme-fr">— Les verbes</span></li>
+    <li>Going places <span class="theme-fr">— Aller et venir</span></li>
+    <li>Weather & seasons <span class="theme-fr">— Le temps qu'il fait</span></li>
+    <li>Connectors & useful words <span class="theme-fr">— Petits mots utiles</span></li>
+  </ol>
+  <p style="margin-top:8mm;font-size:10pt;color:#555">Back matter: false-friends quick-reference · 30-day study schedule.</p>
+</div>
+
+<!-- Theme 1 -->
+<div class="theme">
+  <span class="theme-num">1</span><h1>Introductions<span class="fr-title">Présentations</span></h1>
+  <p class="lead">When you meet someone new, say goodbye, or point at something, these are the words you need.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Je m'appelle</td><td class="ph">zhuh mah-PELL</td><td class="nl">ik heet</td><td class="en">"I call myself" — related to 'appeal'. Verb: s'appeler.</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> J'habite</td><td class="ph">zha-BEET</td><td class="nl">ik woon</td><td class="en">related to 'inhabit'. Verb: habiter.</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> C'est</td><td class="ph">say</td><td class="nl">het is</td><td class="en">"it is / this is"</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Il y a</td><td class="ph">eel-YAH</td><td class="nl">er is, er zijn</td><td class="en">"there is / there are"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Oui</td><td class="ph">wee</td><td class="nl">ja</td><td class="en">yes</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Non</td><td class="ph">nohn</td><td class="nl">nee</td><td class="en">no</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Excuse-moi</td><td class="ph">ex-KEWZ mwah</td><td class="nl">sorry</td><td class="en">excuse me</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> À demain</td><td class="ph">ah duh-MAN</td><td class="nl">tot morgen</td><td class="en">"till tomorrow" — see you tomorrow</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit dialogue</h3>
+    <p class="fr-text">— Salut ! <strong>Je m'appelle</strong> Lila. Et toi ?<br>— <strong>Je m'appelle</strong> Pierre. Tu <strong>habites</strong> où ?<br>— <strong>J'habite</strong> ici. <strong>C'est</strong> ma maison ! <strong>Il y a</strong> un chien aussi.<br>— <strong>Oui</strong>, je vois. <strong>Excuse-moi</strong>, je dois partir. <strong>À demain</strong>, Lila !</p>
+    <p class="nl-text">— Hoi! Ik heet Lila. En jij?<br>— Ik heet Pierre. Waar woon je?<br>— Ik woon hier. Dat is mijn huis! Er is ook een hond.<br>— Ja, ik zie het. Sorry, ik moet gaan. Tot morgen, Lila!</p>
+  </div>
+  <div class="practice">
+    <h3>À toi ! — Your turn</h3>
+    <ol>
+      <li>Say "My name is Marie." <span class="ans">→ Je m'appelle Marie.</span></li>
+      <li>Translate: "I live in Paris." <span class="ans">→ J'habite à Paris.</span></li>
+      <li>"This is my dog." <span class="ans">→ C'est mon chien.</span></li>
+      <li>"There is a school." <span class="ans">→ Il y a une école.</span></li>
+      <li>"Sorry — see you tomorrow." <span class="ans">→ Excuse-moi — à demain.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques — quick notes</h3>
+    <ul>
+      <li><strong>Je m'appelle</strong> literally means "I call myself" — from the reflexive verb <em>s'appeler</em>.</li>
+      <li><strong>C'est</strong> covers both "it is" and "this is" — French doesn't distinguish.</li>
+      <li><strong>Il y a</strong> stays the same for singular OR plural: <em>il y a un chien</em> / <em>il y a des chiens</em>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 2 -->
+<div class="theme">
+  <span class="theme-num">2</span><h1>Family & people<span class="fr-title">La famille et les gens</span></h1>
+  <p class="lead">The people in your life — parents, siblings, neighbours.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Les parents</td><td class="ph">lay pah-RAHN</td><td class="nl">de ouders</td><td class="en">parents</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le père</td><td class="ph">luh pair</td><td class="nl">de vader</td><td class="en">related to 'paternal'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La mère</td><td class="ph">lah mair</td><td class="nl">de moeder</td><td class="en">related to 'maternal'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le fils</td><td class="ph">luh feess</td><td class="nl">de zoon</td><td class="en">son — related to 'filial'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La fille</td><td class="ph">lah FEE-yuh</td><td class="nl">het meisje, de dochter</td><td class="en">girl OR daughter</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le garçon</td><td class="ph">luh gar-SOHN</td><td class="nl">de jongen</td><td class="en">boy (or waiter)</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'enfant</td><td class="ph">lahn-FAHN</td><td class="nl">het kind</td><td class="en">related to 'infant'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> La femme</td><td class="ph">lah fahm</td><td class="nl">de vrouw</td><td class="en">woman — related to 'feminine'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> L'homme</td><td class="ph">lom</td><td class="nl">de man</td><td class="en">man — related to 'human'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le voisin</td><td class="ph">luh vwah-ZAN</td><td class="nl">de buurman</td><td class="en">neighbour — "someone you see"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'habitant</td><td class="ph">lah-bee-TAHN</td><td class="nl">de inwoner</td><td class="en">related to 'inhabitant'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Chez nous</td><td class="ph">shay noo</td><td class="nl">bij ons thuis</td><td class="en">at our place</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text"><strong>Chez nous</strong>, <strong>il y a</strong> cinq personnes : mon <strong>père</strong>, ma <strong>mère</strong>, mon <strong>fils</strong> Pierre, ma <strong>fille</strong> Lila, et moi. <strong>Le voisin</strong> est un <strong>homme</strong> calme. Sa <strong>femme</strong> est jolie. Leurs <strong>enfants</strong> jouent avec mon <strong>garçon</strong>. <strong>Les habitants</strong> du quartier sont tous gentils.</p>
+    <p class="nl-text">Bij ons thuis zijn vijf personen: mijn vader, mijn moeder, mijn zoon Pierre, mijn dochter Lila, en ik. De buurman is een rustige man. Zijn vrouw is mooi. Hun kinderen spelen met mijn jongen. De inwoners van de wijk zijn allemaal aardig.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"My father is here." <span class="ans">→ Mon père est ici.</span></li>
+      <li>"There are three children." <span class="ans">→ Il y a trois enfants.</span></li>
+      <li>"The woman is my mother." <span class="ans">→ La femme est ma mère.</span></li>
+      <li>"My neighbour is a nice man." <span class="ans">→ Mon voisin est un homme gentil.</span></li>
+      <li>"At our place, there's a dog." <span class="ans">→ Chez nous, il y a un chien.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><strong>La fille</strong> means BOTH "girl" AND "daughter" — context decides.</li>
+      <li><strong>Les parents</strong> is masculine plural ("les") even if one parent is female — French defaults to masculine for mixed groups.</li>
+      <li><strong>Le garçon</strong> can also mean "waiter" in a café context.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 3 -->
+<div class="theme">
+  <span class="theme-num">3</span><h1>My house<span class="fr-title">À la maison</span></h1>
+  <p class="lead">Rooms, furniture, and the everyday parts of home life.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La maison</td><td class="ph">lah may-ZOHN</td><td class="nl">het huis</td><td class="en">house — related to 'mansion'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La chambre</td><td class="ph">lah SHAHM-bruh</td><td class="nl">de slaapkamer</td><td class="en">bedroom — related to 'chamber'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La cuisine</td><td class="ph">lah kwee-ZEEN</td><td class="nl">de keuken</td><td class="en">related to 'cuisine'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La fenêtre</td><td class="ph">lah fuh-NEH-truh</td><td class="nl">het raam</td><td class="en">related to 'defenestrate'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La chaise</td><td class="ph">lah shez</td><td class="nl">de stoel</td><td class="en">related to 'chaise longue'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La table</td><td class="ph">lah TAH-bluh</td><td class="nl">de tafel</td><td class="en">related to 'table'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le lit</td><td class="ph">luh lee</td><td class="nl">het bed</td><td class="en">bed — like 'litter'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'escalier</td><td class="ph">less-kah-LYAY</td><td class="nl">de trap</td><td class="en">stairs — related to 'escalator'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le frigo</td><td class="ph">luh free-GOH</td><td class="nl">de ijskast</td><td class="en">fridge — from 'frigidaire'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le four</td><td class="ph">luh foor</td><td class="nl">de oven</td><td class="en">oven — related to 'furnace'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La vue</td><td class="ph">lah vew</td><td class="nl">het uitzicht</td><td class="en">view — related to 'visual'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La dispute</td><td class="ph">lah dee-SPEWT</td><td class="nl">de ruzie</td><td class="en">argument — related to 'dispute'</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">Voici <strong>ma maison</strong>. Dans <strong>la cuisine</strong>, il y a <strong>une table</strong>, des <strong>chaises</strong>, <strong>un frigo</strong> et <strong>un four</strong>. <strong>Ma chambre</strong> est en haut — je monte <strong>l'escalier</strong>. <strong>La fenêtre</strong> est grande et <strong>la vue</strong> est jolie. Mon <strong>lit</strong> est près de la fenêtre. Quand mon frère est ici, il y a souvent <strong>une dispute</strong> !</p>
+    <p class="nl-text">Hier is mijn huis. In de keuken zijn een tafel, stoelen, een ijskast en een oven. Mijn slaapkamer is boven — ik ga de trap op. Het raam is groot en het uitzicht is mooi. Mijn bed staat dichtbij het raam. Als mijn broer hier is, is er vaak ruzie!</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"The kitchen is small." <span class="ans">→ La cuisine est petite.</span></li>
+      <li>"There is a bed in my bedroom." <span class="ans">→ Il y a un lit dans ma chambre.</span></li>
+      <li>"The window is open." <span class="ans">→ La fenêtre est ouverte.</span></li>
+      <li>"I go up the stairs." <span class="ans">→ Je monte l'escalier.</span></li>
+      <li>"My house is big." <span class="ans">→ Ma maison est grande.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><strong>La chambre</strong> specifically means BEDROOM. For other rooms French uses <em>la pièce</em> or <em>la salle</em>.</li>
+      <li><strong>Le frigo</strong> is the informal word — the full form is <em>le réfrigérateur</em>.</li>
+      <li>Notice the gender: nearly every room is feminine (la chambre, la cuisine), but <em>le lit, le frigo, le four</em> are masculine.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 4 -->
+<div class="theme">
+  <span class="theme-num">4</span><h1>School life<span class="fr-title">À l'école</span></h1>
+  <p class="lead">The biggest category — teachers, classes, subjects, materials.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'école</td><td class="ph">lay-KOHL</td><td class="nl">de school</td><td class="en">related to 'school, scholar'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le/la prof</td><td class="ph">luh / lah proff</td><td class="nl">de docent</td><td class="en">short for 'professeur'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'élève</td><td class="ph">lay-LEV</td><td class="nl">de leerling</td><td class="en">related to 'elevate'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le cours</td><td class="ph">luh koor</td><td class="nl">de les</td><td class="en">course, class lesson</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La matière</td><td class="ph">lah mah-TYAIR</td><td class="nl">het schoolvak</td><td class="en">"subject matter"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'anglais</td><td class="ph">lahn-GLAY</td><td class="nl">Engels</td><td class="en">English (subject)</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le français</td><td class="ph">luh frahn-SAY</td><td class="nl">Frans</td><td class="en">French (subject)</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'allemand</td><td class="ph">lal-MAHN</td><td class="nl">Duits</td><td class="en">German — like 'allemande'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'histoire</td><td class="ph">lee-STWAHR</td><td class="nl">Geschiedenis</td><td class="en">history</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La langue</td><td class="ph">lah lahng</td><td class="nl">de taal</td><td class="en">language, tongue</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Les devoirs</td><td class="ph">lay duh-VWAHR</td><td class="nl">het huiswerk</td><td class="en">"duties" = homework</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La note</td><td class="ph">lah noht</td><td class="nl">het cijfer</td><td class="en"><span class="warn-inline">⚠ grade — NOT a written note!</span></td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Le mot</td><td class="ph">luh moh</td><td class="nl">het woord</td><td class="en">word — related to 'motto'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le cahier</td><td class="ph">luh kah-YAY</td><td class="nl">het schrift</td><td class="en">exercise book</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le stylo</td><td class="ph">luh stee-LOH</td><td class="nl">de pen</td><td class="en">pen — related to 'stylus'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'ordinateur</td><td class="ph">lor-dee-nah-TUR</td><td class="nl">de computer</td><td class="en">"one that orders things"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Apprendre</td><td class="ph">ah-PRAHN-druh</td><td class="nl">leren</td><td class="en">related to 'apprehend'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Travailler</td><td class="ph">trah-vah-YAY</td><td class="nl">werken</td><td class="en">related to 'travail'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Commencer</td><td class="ph">koh-mahn-SAY</td><td class="nl">beginnen</td><td class="en">related to 'commence'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Comprendre</td><td class="ph">kohm-PRAHN-druh</td><td class="nl">begrijpen</td><td class="en">related to 'comprehend'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Fort en</td><td class="ph">for ahn</td><td class="nl">goed in</td><td class="en">"strong in" = good at</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Nul en</td><td class="ph">newl ahn</td><td class="nl">slecht in</td><td class="en">"null in" = bad at</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">À <strong>l'école</strong>, j'ai <strong>cours</strong> de <strong>français</strong> le matin. <strong>La prof</strong> est calme. <strong>J'apprends</strong> une <strong>langue</strong> nouvelle ! Dans mon <strong>cahier</strong>, j'écris les <strong>mots</strong> avec mon <strong>stylo</strong>. À midi, on <strong>commence</strong> <strong>l'histoire</strong>. Je suis <strong>fort en</strong> français, mais <strong>nul en</strong> allemand. <strong>Les devoirs</strong> sur <strong>l'ordinateur</strong> sont durs — je ne <strong>comprends</strong> pas tout. Mais j'ai une bonne <strong>note</strong> !</p>
+    <p class="nl-text">Op school heb ik 's ochtends Frans. De docent is rustig. Ik leer een nieuwe taal! In mijn schrift schrijf ik de woorden met mijn pen. Om 12 uur beginnen we met geschiedenis. Ik ben goed in Frans, maar slecht in Duits. Het huiswerk op de computer is moeilijk — ik begrijp niet alles. Maar ik heb een goed cijfer!</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"I am a student." <span class="ans">→ Je suis un élève.</span></li>
+      <li>"French class is difficult." <span class="ans">→ Le cours de français est difficile.</span></li>
+      <li>"I'm good at English." <span class="ans">→ Je suis fort en anglais.</span></li>
+      <li>"I don't understand the homework." <span class="ans">→ Je ne comprends pas les devoirs.</span></li>
+      <li>"The teacher starts the lesson." <span class="ans">→ Le prof commence le cours.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><span class="warn-inline">⚠ False friend:</span> <strong>la note</strong> = grade/mark, NOT a written note (which is "un mot" or "une lettre").</li>
+      <li><strong>La matière</strong> = a school subject (maths, history). <strong>Le cours</strong> = the actual class/lesson. Different concepts.</li>
+      <li><strong>Le/la prof</strong> changes article with gender of the teacher — <em>le prof</em> (male), <em>la prof</em> (female).</li>
+      <li>Subjects of study don't take a capital letter in French: <em>le français, l'anglais, l'histoire</em>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 5 -->
+<div class="theme">
+  <span class="theme-num">5</span><h1>My town<span class="fr-title">En ville</span></h1>
+  <p class="lead">Places around town — shops, transport, public spaces.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La ville</td><td class="ph">lah veel</td><td class="nl">de stad</td><td class="en">city — related to 'village'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le centre-ville</td><td class="ph">luh sahn-truh-VEEL</td><td class="nl">het stadscentrum</td><td class="en">city centre</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le quartier</td><td class="ph">luh kar-TYAY</td><td class="nl">de wijk</td><td class="en"><span class="warn-inline">⚠ neighbourhood, NOT a coin</span></td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le pays</td><td class="ph">luh pay-EE</td><td class="nl">het land</td><td class="en">country — like 'paysage' (landscape)</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La place</td><td class="ph">lah plahs</td><td class="nl">de plaats, het plein</td><td class="en">place, public square</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'arrêt de bus</td><td class="ph">lah-RAY duh boos</td><td class="nl">de bushalte</td><td class="en">"arrest of bus" = bus stop</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La circulation</td><td class="ph">lah seer-kew-lah-SYOHN</td><td class="nl">het verkeer</td><td class="en">related to 'circulation'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le coin</td><td class="ph">luh kwan</td><td class="nl">de hoek</td><td class="en"><span class="warn-inline">⚠ corner, NOT a coin!</span></td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La plage</td><td class="ph">lah plahzh</td><td class="nl">het strand</td><td class="en">beach — like 'playa'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le match</td><td class="ph">luh mahtch</td><td class="nl">de wedstrijd</td><td class="en">match (sports)</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le magasin</td><td class="ph">luh mah-gah-ZAN</td><td class="nl">de winkel</td><td class="en"><span class="warn-inline">⚠ shop, NOT a magazine!</span></td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le supermarché</td><td class="ph">luh sew-pair-mar-SHAY</td><td class="nl">de supermarkt</td><td class="en">supermarket</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La boulangerie</td><td class="ph">lah boo-lahn-zhuh-REE</td><td class="nl">de bakkerij</td><td class="en">bakery — from 'boule' (dough ball)</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La voiture</td><td class="ph">lah vwah-TEWR</td><td class="nl">de auto</td><td class="en">car — like 'vehicle'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'escalier</td><td class="ph">less-kah-LYAY</td><td class="nl">de trap</td><td class="en">(also "stairs" — see Theme 3)</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">Ma <strong>ville</strong> est petite mais jolie. Près de chez nous, il y a <strong>un magasin</strong> et <strong>une boulangerie</strong>. Au <strong>coin</strong> de la rue, <strong>l'arrêt de bus</strong>. <strong>La plage</strong> n'est pas loin du <strong>centre-ville</strong>. Le dimanche, je vais au <strong>match</strong> en <strong>voiture</strong> — mais il y a beaucoup de <strong>circulation</strong> ! Sur <strong>la place</strong>, les enfants du <strong>quartier</strong> jouent ensemble.</p>
+    <p class="nl-text">Mijn stad is klein maar mooi. Dichtbij ons zijn een winkel en een bakkerij. Op de hoek van de straat, de bushalte. Het strand is niet ver van het stadscentrum. Op zondag ga ik met de auto naar de wedstrijd — maar er is veel verkeer! Op het plein spelen de kinderen uit de wijk samen.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"The bakery is on the corner." <span class="ans">→ La boulangerie est au coin.</span></li>
+      <li>"I live near the school." <span class="ans">→ J'habite près de l'école.</span></li>
+      <li>"Where is the supermarket?" <span class="ans">→ Où est le supermarché ?</span></li>
+      <li>"The beach is far away." <span class="ans">→ La plage est loin.</span></li>
+      <li>"There is a lot of traffic." <span class="ans">→ Il y a beaucoup de circulation.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><span class="warn-inline">⚠</span> <strong>Three false friends in one theme!</strong> <em>Le coin</em> = corner (not a coin), <em>le magasin</em> = shop (not magazine), <em>le quartier</em> = neighbourhood (not a quarter coin).</li>
+      <li><strong>La place</strong> = a public square OR "place" in the abstract sense (e.g., "à ta place" = "in your place").</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 6 -->
+<div class="theme">
+  <span class="theme-num">6</span><h1>Directions<span class="fr-title">Le chemin</span></h1>
+  <p class="lead">Asking and giving directions — the words for here, there, left, right.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Où</td><td class="ph">oo</td><td class="nl">waar</td><td class="en">where</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Ici</td><td class="ph">ee-SEE</td><td class="nl">hier</td><td class="en">here</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Là-bas</td><td class="ph">lah-BAH</td><td class="nl">daar</td><td class="en">over there</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Loin</td><td class="ph">lwan</td><td class="nl">ver weg</td><td class="en">far away</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Près</td><td class="ph">preh</td><td class="nl">dichtbij</td><td class="en">near — "pressed close"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> En face de</td><td class="ph">ahn fahs duh</td><td class="nl">tegenover</td><td class="en">"in face of" = opposite</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> À gauche</td><td class="ph">ah gohsh</td><td class="nl">linksaf</td><td class="en">to the left — related to 'gauche'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> À droite</td><td class="ph">ah drwaht</td><td class="nl">rechtsaf</td><td class="en">to the right — related to 'adroit'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Tout droit</td><td class="ph">too drwah</td><td class="nl">rechtdoor</td><td class="en">straight ahead</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> À pied</td><td class="ph">ah pyay</td><td class="nl">lopend</td><td class="en">on foot — related to 'pedal'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Monter</td><td class="ph">mohn-TAY</td><td class="nl">naar boven gaan</td><td class="en">go up — related to 'mount'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Descendre</td><td class="ph">deh-SAHN-druh</td><td class="nl">naar beneden gaan</td><td class="en">related to 'descend'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Jusqu'à</td><td class="ph">zhew-SKAH</td><td class="nl">tot aan</td><td class="en">until, up to</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit dialogue</h3>
+    <p class="fr-text">— Excuse-moi, <strong>où</strong> est l'école ?<br>— Tu vas <strong>tout droit jusqu'à</strong> l'arrêt de bus, ensuite <strong>à gauche</strong>.<br>— C'est <strong>loin</strong> ?<br>— Non, c'est tout <strong>près</strong> — <strong>à pied</strong>, cinq minutes. L'école est <strong>en face du</strong> supermarché.<br>— Et <strong>à droite</strong> ?<br>— <strong>À droite</strong>, il y a la boulangerie. <strong>Là-bas</strong>, tu vois ? Pour entrer à l'école, tu <strong>montes</strong> l'escalier.</p>
+    <p class="nl-text">— Sorry, waar is de school?<br>— Je gaat rechtdoor tot de bushalte, dan linksaf.<br>— Is het ver?<br>— Nee, het is heel dichtbij — lopend, vijf minuten. De school is tegenover de supermarkt.<br>— En rechts?<br>— Rechts is de bakkerij. Daar, zie je? Om de school in te gaan, ga je de trap op.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"The bakery is to the right." <span class="ans">→ La boulangerie est à droite.</span></li>
+      <li>"Where is your house?" <span class="ans">→ Où est ta maison ?</span></li>
+      <li>"It is far from here." <span class="ans">→ C'est loin d'ici.</span></li>
+      <li>"Opposite the supermarket." <span class="ans">→ En face du supermarché.</span></li>
+      <li>"I go down the stairs." <span class="ans">→ Je descends l'escalier.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><strong>À gauche</strong> (left) sounds like English "gauche" — which actually means "awkward" because of an old prejudice against left-handed people.</li>
+      <li><strong>À droite</strong> (right) is related to "adroit" (skillful) — old prejudice the other way.</li>
+      <li>Don't confuse <strong>à droite</strong> (to the right) with <strong>tout droit</strong> (straight ahead) — they look similar!</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 7 -->
+<div class="theme">
+  <span class="theme-num">7</span><h1>Time & days<span class="fr-title">Le temps qui passe</span></h1>
+  <p class="lead">Days, times of day, frequency. The words you need to plan and tell time.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Maintenant</td><td class="ph">man-tuh-NAHN</td><td class="nl">nu</td><td class="en">"currently holding" = now</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Aujourd'hui</td><td class="ph">oh-zhoor-DWEE</td><td class="nl">vandaag</td><td class="en">"on the day of today"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Hier</td><td class="ph">yair</td><td class="nl">gisteren</td><td class="en">yesterday — looks like English "here" but means yesterday</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Le matin</td><td class="ph">luh mah-TAN</td><td class="nl">de ochtend</td><td class="en">morning — related to 'matins'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> L'après-midi</td><td class="ph">lah-preh mee-DEE</td><td class="nl">de middag</td><td class="en">"after midday"</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Le soir</td><td class="ph">luh swahr</td><td class="nl">de avond</td><td class="en">evening — related to 'soirée'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Ce soir</td><td class="ph">suh swahr</td><td class="nl">vanavond</td><td class="en">"this evening" = tonight</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Le jour</td><td class="ph">luh zhoor</td><td class="nl">de dag</td><td class="en">day — related to 'journal'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> La semaine prochaine</td><td class="ph">lah suh-MEN proh-SHEN</td><td class="nl">de volgende week</td><td class="en">"the next week"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Dimanche</td><td class="ph">dee-MAHNSH</td><td class="nl">zondag</td><td class="en">Sunday</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Midi</td><td class="ph">mee-DEE</td><td class="nl">12 uur 's middags</td><td class="en">noon = mid-day</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Minuit</td><td class="ph">mee-NWEE</td><td class="nl">12 uur 's nachts</td><td class="en">"mid-night"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le printemps</td><td class="ph">luh PRAN-tahn</td><td class="nl">het voorjaar</td><td class="en">spring — "first time"</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Toujours</td><td class="ph">too-ZHOOR</td><td class="nl">altijd</td><td class="en">"all the days" = always</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Souvent</td><td class="ph">soo-VAHN</td><td class="nl">vaak</td><td class="en">often — like 'frequent'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Presque</td><td class="ph">PRESS-kuh</td><td class="nl">bijna</td><td class="en">almost</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Ensuite</td><td class="ph">ahn-SWEET</td><td class="nl">vervolgens</td><td class="en">"en suite" = next</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text"><strong>Aujourd'hui</strong>, c'est <strong>dimanche</strong>, et c'est <strong>le printemps</strong>. <strong>Hier</strong>, j'ai joué au foot <strong>le matin</strong>. <strong>Maintenant</strong>, à <strong>midi</strong>, je mange. <strong>Cet après-midi</strong>, je vais à la plage. <strong>Ce soir</strong>, je rentre à la maison. Demain, je vais à l'école — <strong>toujours le matin</strong>, <strong>souvent</strong> avec mon frère. <strong>Ensuite</strong>, c'est l'histoire. <strong>La semaine prochaine</strong>, c'est <strong>presque</strong> le test !</p>
+    <p class="nl-text">Vandaag is het zondag, en het is lente. Gisteren heb ik 's ochtends voetbal gespeeld. Nu, om 12 uur, eet ik. Vanmiddag ga ik naar het strand. Vanavond ga ik naar huis. Morgen ga ik naar school — altijd 's ochtends, vaak met mijn broer. Daarna is het geschiedenis. Volgende week is het bijna de toets!</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"Today is Sunday." <span class="ans">→ Aujourd'hui c'est dimanche.</span></li>
+      <li>"I always work in the morning." <span class="ans">→ Je travaille toujours le matin.</span></li>
+      <li>"Yesterday, I was sick." <span class="ans">→ Hier, j'étais malade.</span></li>
+      <li>"Tonight, I'm eating with my family." <span class="ans">→ Ce soir, je mange avec ma famille.</span></li>
+      <li>"It's almost noon." <span class="ans">→ C'est presque midi.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><strong>Hier</strong> looks identical to English "here" but means YESTERDAY. Pronounced [yair].</li>
+      <li><strong>Midi</strong> = noon (12pm). <strong>Minuit</strong> = midnight (12am). Tiny spelling difference, big meaning difference.</li>
+      <li>Compare <em>le matin</em> (the morning, in general) with <em>ce matin</em> (this morning).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 8 -->
+<div class="theme">
+  <span class="theme-num">8</span><h1>Asking questions<span class="fr-title">Poser des questions</span></h1>
+  <p class="lead">The question words — small list, huge utility.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Qui ?</td><td class="ph">kee</td><td class="nl">wie ?</td><td class="en">who?</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Quel(le) ?</td><td class="ph">kell</td><td class="nl">welke ?</td><td class="en">which? — masc. quel, fem. quelle</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Qu'est-ce que… ?</td><td class="ph">kess-kuh</td><td class="nl">wat… ?</td><td class="en">"what is it that...?"</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Où ?</td><td class="ph">oo</td><td class="nl">waar ?</td><td class="en">where?</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Quand ?</td><td class="ph">kahn</td><td class="nl">wanneer ?</td><td class="en">when?</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Comment ?</td><td class="ph">koh-MAHN</td><td class="nl">hoe ?</td><td class="en"><span class="warn-inline">⚠ how — NOT "comment"!</span></td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Combien ?</td><td class="ph">kohm-BYAN</td><td class="nl">hoeveel ?</td><td class="en">how much/many?</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Pourquoi ?</td><td class="ph">poor-KWAH</td><td class="nl">waarom ?</td><td class="en">"for what?" = why?</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit dialogue</h3>
+    <p class="fr-text">— <strong>Qui</strong> est-ce ?<br>— C'est le voisin.<br>— <strong>Comment</strong> s'appelle-t-il ?<br>— Pierre.<br>— <strong>Où</strong> habite-t-il ?<br>— Près d'ici.<br>— <strong>Quand</strong> vient-il ?<br>— Aujourd'hui ! <strong>Pourquoi</strong> ?<br>— Pour le match. <strong>Combien</strong> de personnes ?<br>— Quatre. <strong>Qu'est-ce que</strong> tu manges ?<br>— Du pain. <strong>Quelle</strong> sorte de pain ?</p>
+    <p class="nl-text">— Wie is dat? — Dat is de buurman. — Hoe heet hij? — Pierre. — Waar woont hij? — Dichtbij hier. — Wanneer komt hij? — Vandaag! Waarom? — Voor de wedstrijd. Hoeveel personen? — Vier. Wat eet je? — Brood. Welk soort brood?</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"What is this?" <span class="ans">→ Qu'est-ce que c'est ?</span></li>
+      <li>"Who is he?" <span class="ans">→ Qui est-il ?</span></li>
+      <li>"Where is the school?" <span class="ans">→ Où est l'école ?</span></li>
+      <li>"Why?" <span class="ans">→ Pourquoi ?</span></li>
+      <li>"How much does it cost?" <span class="ans">→ Combien ça coûte ?</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><span class="warn-inline">⚠ Top false friend:</span> <strong>Comment ?</strong> means HOW, not "comment". The trap catches almost every English speaker at first.</li>
+      <li><strong>Quel</strong> (masculine) / <strong>quelle</strong> (feminine) must agree with the noun: <em>quel garçon</em>, <em>quelle fille</em>.</li>
+      <li><strong>Qu'est-ce que</strong> is the everyday way to ask "what" — literally "what is it that".</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 9 -->
+<div class="theme">
+  <span class="theme-num">9</span><h1>Food & meals<span class="fr-title">La nourriture</span></h1>
+  <p class="lead">The biggest theme — everything around eating, drinking, ordering, paying. Most of these are from Unité 6.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Manger</td><td class="ph">mahn-ZHAY</td><td class="nl">eten</td><td class="en">eat — like 'manger' (trough)</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Le repas</td><td class="ph">luh ruh-PAH</td><td class="nl">de maaltijd</td><td class="en">meal — related to 'repast'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Déjeuner</td><td class="ph">day-zhuh-NAY</td><td class="nl">lunchen</td><td class="en">"un-fast" — have lunch</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La nourriture</td><td class="ph">lah noo-ree-TEWR</td><td class="nl">het eten</td><td class="en">related to 'nourishment'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le pain</td><td class="ph">luh pan</td><td class="nl">het brood</td><td class="en">bread — "companion" = bread-sharer</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le fromage</td><td class="ph">luh froh-MAHZH</td><td class="nl">de kaas</td><td class="en">cheese</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La viande</td><td class="ph">lah vyahnd</td><td class="nl">het vlees</td><td class="en">meat — like 'viand'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le jambon</td><td class="ph">luh zhahn-BOHN</td><td class="nl">de ham</td><td class="en">ham</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La salade</td><td class="ph">lah sah-LAHD</td><td class="nl">de salade</td><td class="en">salad</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La confiture</td><td class="ph">lah kohn-fee-TEWR</td><td class="nl">de jam</td><td class="en">jam — related to 'confection'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> L'eau</td><td class="ph">loh</td><td class="nl">het water</td><td class="en">water — related to 'aqua'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le lait</td><td class="ph">luh lay</td><td class="nl">de melk</td><td class="en">milk — related to 'lactose'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le verre</td><td class="ph">luh vair</td><td class="nl">het glas</td><td class="en">drinking glass</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La glace</td><td class="ph">lah glahss</td><td class="nl">het ijs</td><td class="en">ice / ice cream — related to 'glacier'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le plat</td><td class="ph">luh plah</td><td class="nl">het gerecht</td><td class="en">dish (a course) — related to 'plate'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Je prends</td><td class="ph">zhuh prahn</td><td class="nl">ik neem</td><td class="en">I take. Verb: prendre.</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Payer</td><td class="ph">pay-YAY</td><td class="nl">betalen</td><td class="en">to pay</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Avoir faim</td><td class="ph">ah-VWAHR fan</td><td class="nl">honger hebben</td><td class="en">"to have hunger" — related to 'famine'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Avoir soif</td><td class="ph">ah-VWAHR swahf</td><td class="nl">dorst hebben</td><td class="en">"to have thirst"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Bon appétit</td><td class="ph">bohn ah-pay-TEE</td><td class="nl">eet smakelijk</td><td class="en">"good appetite" — enjoy your meal</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Délicieux</td><td class="ph">day-lee-SYUH</td><td class="nl">heerlijk</td><td class="en">delicious</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Choisir</td><td class="ph">shwah-ZEER</td><td class="nl">kiezen</td><td class="en">to choose</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Commander</td><td class="ph">koh-mahn-DAY</td><td class="nl">bestellen</td><td class="en">order (food)</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text"><strong>J'ai faim</strong> ! À midi, je <strong>déjeune</strong> au café. Je <strong>choisis</strong> sur le menu. Je <strong>prends</strong> une <strong>salade</strong>, un peu de <strong>viande</strong>, et <strong>un verre d'eau</strong>. Pour le dessert, <strong>une glace</strong> ! Ce <strong>repas</strong> est <strong>délicieux</strong>. <strong>Bon appétit</strong> ! Maintenant, je <strong>paye</strong>. J'ai encore <strong>soif</strong> — un verre de <strong>lait</strong>, s'il vous plaît. Et du <strong>pain</strong> avec du <strong>fromage</strong>.</p>
+    <p class="nl-text">Ik heb honger! Om 12 uur lunch ik in het café. Ik kies op het menu. Ik neem een salade, een beetje vlees, en een glas water. Als toetje een ijsje! Deze maaltijd is heerlijk. Eet smakelijk! Nu betaal ik. Ik heb nog dorst — een glas melk, alstublieft. En brood met kaas.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"I'm hungry." <span class="ans">→ J'ai faim.</span></li>
+      <li>"The cheese is good." <span class="ans">→ Le fromage est bon.</span></li>
+      <li>"I'll have a glass of water." <span class="ans">→ Je prends un verre d'eau.</span></li>
+      <li>"Bread and jam, please." <span class="ans">→ Du pain et de la confiture, s'il vous plaît.</span></li>
+      <li>"How much do I pay?" <span class="ans">→ Combien je paye ?</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><strong>Avoir faim / avoir soif</strong> — French says "have hunger / have thirst" not "be hungry / be thirsty". Same construction as <em>avoir peur</em> (be afraid).</li>
+      <li><strong>La glace</strong> = both ice AND ice cream. Context decides.</li>
+      <li><strong>Le plat</strong> = the dish (a course of food), NOT the physical plate (that's <em>l'assiette</em>).</li>
+      <li><strong>Le verre</strong> = drinking glass. Window glass is <em>la vitre</em>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 10 -->
+<div class="theme">
+  <span class="theme-num">10</span><h1>Clothes & colours<span class="fr-title">Vêtements et couleurs</span></h1>
+  <p class="lead">What you wear and what colour it is. A tight theme — small but useful.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Les vêtements</td><td class="ph">lay vet-MAHN</td><td class="nl">de kleren</td><td class="en">clothes — related to 'vestments'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La robe</td><td class="ph">lah rohb</td><td class="nl">de jurk</td><td class="en"><span class="warn-inline">⚠ dress — NOT a bathrobe!</span></td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La chaussure</td><td class="ph">lah shoh-SEWR</td><td class="nl">de schoen</td><td class="en">shoe</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Les lunettes</td><td class="ph">lay lew-NETT</td><td class="nl">de bril</td><td class="en">"little moons" — glasses</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le chapeau</td><td class="ph">luh shah-POH</td><td class="nl">de hoed</td><td class="en">hat (English borrows 'chapeau')</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Porter</td><td class="ph">por-TAY</td><td class="nl">dragen</td><td class="en">carry / wear — related to 'portable'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Bleu</td><td class="ph">bluh</td><td class="nl">blauw</td><td class="en">blue</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Blanc</td><td class="ph">blahn</td><td class="nl">wit</td><td class="en">white — related to 'blank'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Rouge</td><td class="ph">roozh</td><td class="nl">rood</td><td class="en">red — related to 'rouge'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Cher, chère</td><td class="ph">shair</td><td class="nl">duur</td><td class="en">expensive — related to 'cherish'</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">Aujourd'hui, je <strong>porte une robe bleue</strong>, des <strong>chaussures rouges</strong>, et un <strong>chapeau blanc</strong>. Mes <strong>lunettes</strong> sont nouvelles — un peu <strong>chères</strong>, mais jolies ! Ma mère dit : « Ces <strong>vêtements</strong> sont mignons ! » C'est <strong>cher</strong> tout ça, mais c'est délicieux à porter.</p>
+    <p class="nl-text">Vandaag draag ik een blauwe jurk, rode schoenen, en een witte hoed. Mijn bril is nieuw — een beetje duur, maar mooi! Mijn moeder zegt: "Deze kleren zijn schattig!" Het is allemaal duur, maar heerlijk om te dragen.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"I wear a red hat." <span class="ans">→ Je porte un chapeau rouge.</span></li>
+      <li>"Your shoes are pretty." <span class="ans">→ Tes chaussures sont jolies.</span></li>
+      <li>"The dress is white." <span class="ans">→ La robe est blanche.</span></li>
+      <li>"It's expensive." <span class="ans">→ C'est cher.</span></li>
+      <li>"My glasses are blue." <span class="ans">→ Mes lunettes sont bleues.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><span class="warn-inline">⚠</span> <strong>La robe</strong> = dress, NOT a bathrobe! False friend.</li>
+      <li>Colour adjectives agree with the noun: <em>un chapeau bleu</em> (m.) / <em>une robe bleue</em> (f.) / <em>des chaussures bleues</em> (plural).</li>
+      <li><strong>Blanc</strong> changes more — feminine is <em>blanche</em>, not <em>blanche</em>. And the masculine <em>blanc</em> is pronounced [blahn], but feminine <em>blanche</em> is pronounced [blahnsh].</li>
+      <li><strong>Cher</strong> can also mean "dear" — <em>cher ami</em> = dear friend.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 11 -->
+<div class="theme">
+  <span class="theme-num">11</span><h1>Describing people & things<span class="fr-title">Décrire</span></h1>
+  <p class="lead">Adjectives — for size, age, quality, difficulty. The building blocks of description.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Grand(e)</td><td class="ph">grahn / grahnd</td><td class="nl">groot</td><td class="en">grand, big</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Petit(e)</td><td class="ph">puh-TEE / puh-TEET</td><td class="nl">klein</td><td class="en">small (English uses petite)</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Joli(e)</td><td class="ph">zhoh-LEE</td><td class="nl">mooi, leuk</td><td class="en">pretty — related to 'jolly'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Beau, belle</td><td class="ph">boh / bell</td><td class="nl">mooi</td><td class="en">beautiful — striking, handsome</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Calme</td><td class="ph">kalm</td><td class="nl">rustig</td><td class="en">calm</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Malade</td><td class="ph">mah-LAHD</td><td class="nl">ziek</td><td class="en">ill — related to 'malady'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Seul(e)</td><td class="ph">suhl</td><td class="nl">alleen</td><td class="en">alone — related to 'sole'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Mignon</td><td class="ph">mee-NYOHN</td><td class="nl">schattig</td><td class="en">cute — like 'filet mignon'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Nouveau, nouvelle</td><td class="ph">noo-VOH / noo-VELL</td><td class="nl">nieuw</td><td class="en">new — related to 'novel'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Dernier, dernière</td><td class="ph">dehr-NYAY / dehr-NYAIR</td><td class="nl">laatste, vorige</td><td class="en">last, previous</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Préféré</td><td class="ph">pray-fay-RAY</td><td class="nl">lievelings-</td><td class="en">favourite</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Autre</td><td class="ph">OH-truh</td><td class="nl">ander</td><td class="en">other — related to 'alter'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Bon, bonne</td><td class="ph">bohn / bun</td><td class="nl">goed, lekker</td><td class="en">good — related to 'bon-bon'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Meilleur</td><td class="ph">may-YUR</td><td class="nl">beste</td><td class="en">best — related to 'ameliorate'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Difficile</td><td class="ph">dee-fee-SEEL</td><td class="nl">moeilijk</td><td class="en">difficult</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Dur</td><td class="ph">dewr</td><td class="nl">moeilijk (= difficile)</td><td class="en">hard — related to 'durable'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Facile</td><td class="ph">fah-SEEL</td><td class="nl">makkelijk</td><td class="en">easy — related to 'facile'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Dangereux</td><td class="ph">dahn-zhuh-RUH</td><td class="nl">gevaarlijk</td><td class="en">dangerous</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Vite</td><td class="ph">veet</td><td class="nl">snel</td><td class="en">fast</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Libre</td><td class="ph">LEE-bruh</td><td class="nl">vrij</td><td class="en">free — related to 'liberty'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Propre</td><td class="ph">PROH-pruh</td><td class="nl">eigen</td><td class="en">one's own — related to 'proper'</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">Ma sœur est <strong>petite</strong> et <strong>calme</strong>. Mon frère est <strong>grand</strong> et toujours <strong>malade</strong>. Notre chien est <strong>mignon</strong> — il est mon <strong>meilleur</strong> ami, et mon ami <strong>préféré</strong>. La <strong>nouvelle</strong> voisine est <strong>jolie</strong>. Elle a un <strong>autre</strong> chien. C'est ma <strong>dernière</strong> histoire — pas <strong>difficile</strong>, pas <strong>dangereuse</strong>, mais elle est <strong>belle</strong> ! Mon <strong>propre</strong> chien est <strong>libre</strong> dans le jardin. Il court <strong>vite</strong>.</p>
+    <p class="nl-text">Mijn zus is klein en rustig. Mijn broer is groot en altijd ziek. Onze hond is schattig — hij is mijn beste vriend, en mijn favoriete vriend. De nieuwe buurvrouw is mooi. Ze heeft een andere hond. Dit is mijn laatste verhaal — niet moeilijk, niet gevaarlijk, maar mooi! Mijn eigen hond is vrij in de tuin. Hij rent snel.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"The new house is big." <span class="ans">→ La nouvelle maison est grande.</span></li>
+      <li>"Math is difficult." <span class="ans">→ Les maths sont difficiles.</span></li>
+      <li>"The cat is fast." <span class="ans">→ Le chat est vite. (also: rapide)</span></li>
+      <li>"She is alone." <span class="ans">→ Elle est seule.</span></li>
+      <li>"My own dog is the best." <span class="ans">→ Mon propre chien est le meilleur.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li>Most French adjectives add <strong>-e</strong> for feminine: <em>grand → grande</em>. Some add <strong>-le, -ne, -se, -che</strong>: <em>nouvel → nouvelle</em>, <em>bon → bonne</em>.</li>
+      <li><strong>Dur</strong> and <strong>difficile</strong> are synonyms for "moeilijk" — but <em>dur</em> also means physically hard (a hard table).</li>
+      <li><strong>Propre</strong> = "one's own" in front of the noun (<em>mon propre lit</em>), but "clean" after the noun (<em>une chambre propre</em>).</li>
+      <li><strong>Libre</strong> = free as in liberty / not busy. NOT free of charge (that's <em>gratuit</em>).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 12 -->
+<div class="theme">
+  <span class="theme-num">12</span><h1>Likes & feelings<span class="fr-title">Goûts et sentiments</span></h1>
+  <p class="lead">Express what you love, what you hate, what you'd like, what you think.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Adorer</td><td class="ph">ah-doh-RAY</td><td class="nl">dol zijn op</td><td class="en">adore (strong like, not romantic)</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Détester</td><td class="ph">day-tess-TAY</td><td class="nl">hekel hebben aan</td><td class="en">detest, hate</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Préférer</td><td class="ph">pray-fay-RAY</td><td class="nl">liever hebben</td><td class="en">prefer</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> J'ai peur</td><td class="ph">zhay pur</td><td class="nl">ik ben bang</td><td class="en">"I have fear". From: avoir peur.</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Heureusement</td><td class="ph">uh-ruhz-MAHN</td><td class="nl">gelukkig</td><td class="en">luckily — "heureux" = happy</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Dommage</td><td class="ph">doh-MAHZH</td><td class="nl">jammer</td><td class="en">"damage" = what a pity</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> C'est vrai</td><td class="ph">say vray</td><td class="nl">het is waar</td><td class="en">it's true — related to 'verify'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> C'est possible</td><td class="ph">say poh-SEE-bluh</td><td class="nl">het is mogelijk</td><td class="en">it's possible</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> C'est mieux</td><td class="ph">say myuh</td><td class="nl">het is beter</td><td class="en">it's better</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Penser</td><td class="ph">pahn-SAY</td><td class="nl">denken</td><td class="en">think — related to 'pensive'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Je voudrais</td><td class="ph">zhuh voo-DRAY</td><td class="nl">ik zou graag willen</td><td class="en">I would like</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Il faut</td><td class="ph">eel foh</td><td class="nl">je moet, het is nodig</td><td class="en">one must, it is necessary</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">Moi, <strong>j'adore</strong> les chiens, mais <strong>je déteste</strong> les chats. Je <strong>préfère</strong> les animaux calmes. <strong>Heureusement</strong>, mon chien est très mignon. <strong>Dommage</strong>, mon frère <strong>a peur</strong> des chiens ! <strong>Penses</strong>-tu que <strong>c'est possible</strong> d'avoir deux chiens ? <strong>Je voudrais</strong> bien, mais c'est cher. <strong>C'est vrai</strong>, mais <strong>c'est mieux</strong> que rien. <strong>Il faut</strong> parler à mes parents.</p>
+    <p class="nl-text">Ik, ik ben dol op honden, maar ik haat katten. Ik heb liever rustige dieren. Gelukkig is mijn hond heel schattig. Jammer, mijn broer is bang voor honden! Denk je dat het mogelijk is om twee honden te hebben? Ik zou wel willen, maar het is duur. Dat is waar, maar het is beter dan niets. Ik moet met mijn ouders praten.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"I love French." <span class="ans">→ J'adore le français.</span></li>
+      <li>"I'm afraid of dogs." <span class="ans">→ J'ai peur des chiens.</span></li>
+      <li>"What a pity!" <span class="ans">→ Quel dommage !</span></li>
+      <li>"I would like a pen." <span class="ans">→ Je voudrais un stylo.</span></li>
+      <li>"You must work." <span class="ans">→ Il faut travailler.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><strong>Adorer</strong> = strong like (not romantic love) — "j'adore le chocolat" is normal French.</li>
+      <li><strong>J'ai peur</strong> uses <em>avoir</em> (to have) — French builds emotions/states this way: <em>avoir peur, avoir faim, avoir soif</em>.</li>
+      <li><strong>Il faut</strong> is impersonal ("one must, it is necessary") — followed by a verb in the infinitive: <em>il faut manger</em> = one must eat.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 13 -->
+<div class="theme">
+  <span class="theme-num">13</span><h1>Doing things — verbs<span class="fr-title">Les verbes</span></h1>
+  <p class="lead">The most common verbs of action — for daily life, school, conversation.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Jouer</td><td class="ph">zhoo-AY</td><td class="nl">spelen</td><td class="en">to play</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Lire</td><td class="ph">leer</td><td class="nl">lezen</td><td class="en">read — like 'literate'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Écouter</td><td class="ph">ay-koo-TAY</td><td class="nl">luisteren naar</td><td class="en">listen — like 'acoustic'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Regarder</td><td class="ph">ruh-gar-DAY</td><td class="nl">kijken</td><td class="en">watch — "regard"</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Parler</td><td class="ph">par-LAY</td><td class="nl">praten</td><td class="en">speak — related to 'parley'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Donner</td><td class="ph">doh-NAY</td><td class="nl">geven</td><td class="en">give — related to 'donate'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Demander</td><td class="ph">duh-mahn-DAY</td><td class="nl">vragen</td><td class="en"><span class="warn-inline">⚠ ask — NOT "demand"!</span></td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Choisir</td><td class="ph">shwah-ZEER</td><td class="nl">kiezen</td><td class="en">to choose</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Commander</td><td class="ph">koh-mahn-DAY</td><td class="nl">bestellen</td><td class="en">order (food)</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Rencontrer</td><td class="ph">rahn-kohn-TRAY</td><td class="nl">ontmoeten</td><td class="en">"re-encounter" = meet</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Présenter</td><td class="ph">pray-zahn-TAY</td><td class="nl">voorstellen</td><td class="en">introduce, present</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Oublier</td><td class="ph">oo-blee-AY</td><td class="nl">vergeten</td><td class="en">forget — related to 'oblivion'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Chercher</td><td class="ph">shair-SHAY</td><td class="nl">zoeken</td><td class="en">search — related to 'research'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Vivre</td><td class="ph">VEE-vruh</td><td class="nl">leven, wonen</td><td class="en">live — related to 'survive'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Changer</td><td class="ph">shahn-ZHAY</td><td class="nl">veranderen</td><td class="en">change</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Laver</td><td class="ph">lah-VAY</td><td class="nl">wassen</td><td class="en">wash — related to 'lavatory'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Payer</td><td class="ph">pay-YAY</td><td class="nl">betalen</td><td class="en">pay</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Passer</td><td class="ph">pah-SAY</td><td class="nl">doorbrengen</td><td class="en">spend (time)</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">Le matin, <strong>j'écoute</strong> le prof et <strong>je regarde</strong> le tableau. <strong>Je parle</strong> avec mes amis. <strong>Je demande</strong> des choses, <strong>je donne</strong> mes devoirs. Je <strong>cherche</strong> mon stylo — je l'ai <strong>oublié</strong> ! À midi, je <strong>lis</strong> un livre. L'après-midi, je <strong>joue</strong> au foot. <strong>Je rencontre</strong> Pierre — il <strong>présente</strong> sa nouvelle voisine. Le soir, je <strong>lave</strong> mes chaussures. Demain, tout va <strong>changer</strong>.</p>
+    <p class="nl-text">'s Ochtends luister ik naar de docent en kijk ik naar het bord. Ik praat met mijn vrienden. Ik vraag dingen, ik geef mijn huiswerk. Ik zoek mijn pen — ik ben hem vergeten! Om 12 uur lees ik een boek. 's Middags speel ik voetbal. Ik ontmoet Pierre — hij stelt zijn nieuwe buurvrouw voor. 's Avonds was ik mijn schoenen. Morgen gaat alles veranderen.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"I'm reading a book." <span class="ans">→ Je lis un livre.</span></li>
+      <li>"She doesn't understand." <span class="ans">→ Elle ne comprend pas.</span></li>
+      <li>"We choose the cheese." <span class="ans">→ Nous choisissons le fromage.</span></li>
+      <li>"You forgot the homework." <span class="ans">→ Tu as oublié les devoirs.</span></li>
+      <li>"I'm meeting my neighbour." <span class="ans">→ Je rencontre mon voisin.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><span class="warn-inline">⚠</span> <strong>Demander</strong> = to ASK, not to demand. A French waiter <em>demande</em> what you'd like.</li>
+      <li><strong>Habiter</strong> and <strong>vivre</strong> both can mean "to live" — <em>habiter</em> = to live somewhere (a place); <em>vivre</em> = to be alive, to experience life.</li>
+      <li><strong>Écouter</strong> doesn't need "à" — you say "j'écoute la radio" (I listen to the radio), not "j'écoute à la radio".</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 14 -->
+<div class="theme">
+  <span class="theme-num">14</span><h1>Going places<span class="fr-title">Aller et venir</span></h1>
+  <p class="lead">Going, coming, arriving, leaving — the verbs of movement plus the irregular verb "aller" (to go).</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Je vais</td><td class="ph">zhuh vay</td><td class="nl">ik ga</td><td class="en">Verb: aller (irregular)</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> On va</td><td class="ph">ohn vah</td><td class="nl">we gaan</td><td class="en">Verb: aller</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Tu viens</td><td class="ph">tew vyan</td><td class="nl">jij komt</td><td class="en">Verb: venir — related to 'advent'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Arriver</td><td class="ph">ah-ree-VAY</td><td class="nl">aankomen</td><td class="en">arrive</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Rentrer</td><td class="ph">rahn-TRAY</td><td class="nl">naar huis gaan</td><td class="en">"re-enter" home</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Monter</td><td class="ph">mohn-TAY</td><td class="nl">naar boven gaan</td><td class="en">go up — related to 'mount'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Descendre</td><td class="ph">deh-SAHN-druh</td><td class="nl">naar beneden gaan</td><td class="en">go down — related to 'descend'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Passer</td><td class="ph">pah-SAY</td><td class="nl">doorbrengen</td><td class="en">spend (time)</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Faire du vélo</td><td class="ph">fair dew vay-LOH</td><td class="nl">fietsen</td><td class="en">"do bicycle" = to cycle</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> La voiture</td><td class="ph">lah vwah-TEWR</td><td class="nl">de auto</td><td class="en">car</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Déménager</td><td class="ph">day-may-nah-ZHAY</td><td class="nl">verhuizen</td><td class="en">"un-house" = move house</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> À pied</td><td class="ph">ah pyay</td><td class="nl">lopend</td><td class="en">on foot</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">Aujourd'hui, <strong>je vais</strong> à l'école en <strong>voiture</strong>. <strong>Tu viens</strong> avec moi ? <strong>On va arriver</strong> à neuf heures. Après l'école, <strong>je rentre</strong> à la maison <strong>à pied</strong>. <strong>Je monte</strong> l'escalier — ma chambre est en haut. Le week-end, <strong>on fait du vélo</strong> près du centre-ville. <strong>Je passe</strong> beaucoup de temps avec mes amis. La semaine prochaine, <strong>on déménage</strong> — c'est dommage, j'aime ce quartier.</p>
+    <p class="nl-text">Vandaag ga ik met de auto naar school. Kom je met mij mee? We zullen om negen uur aankomen. Na school ga ik te voet naar huis. Ik ga de trap op — mijn slaapkamer is boven. In het weekend fietsen we dichtbij het stadscentrum. Ik breng veel tijd met mijn vrienden door. Volgende week verhuizen we — jammer, ik hou van deze buurt.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"I'm going to the bakery." <span class="ans">→ Je vais à la boulangerie.</span></li>
+      <li>"Are you coming?" <span class="ans">→ Tu viens ?</span></li>
+      <li>"We arrive at six." <span class="ans">→ On arrive à six heures.</span></li>
+      <li>"I'm going home." <span class="ans">→ Je rentre.</span></li>
+      <li>"I cycle to school." <span class="ans">→ Je fais du vélo à l'école.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><strong>Aller</strong> (to go) is irregular: <em>je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont</em>.</li>
+      <li><strong>Venir</strong> (to come) is also irregular: <em>je viens, tu viens, il vient, nous venons, vous venez, ils viennent</em>.</li>
+      <li><strong>Rentrer</strong> = to go home (literally "re-enter"). For "to enter" generally, use <em>entrer</em>.</li>
+      <li>French uses "<em>faire du / de la</em>" + activity for many sports/activities: <em>faire du vélo, faire de la musique, faire du sport</em>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 15 -->
+<div class="theme">
+  <span class="theme-num">15</span><h1>Weather & seasons<span class="fr-title">Le temps qu'il fait</span></h1>
+  <p class="lead">A short but practical theme — French builds weather expressions with <em>il fait</em> + adjective.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Il fait beau</td><td class="ph">eel fay boh</td><td class="nl">het is mooi weer</td><td class="en">"it makes beautiful" = nice weather</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Froid</td><td class="ph">frwah</td><td class="nl">koud</td><td class="en">cold — related to 'fridge'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Chaud</td><td class="ph">shoh</td><td class="nl">warm</td><td class="en">hot, warm — related to 'calorie'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Le printemps</td><td class="ph">luh PRAN-tahn</td><td class="nl">het voorjaar</td><td class="en">spring — "first time"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Doux</td><td class="ph">doo</td><td class="nl">zacht</td><td class="en">soft, mild — related to 'dulcet'</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Clair</td><td class="ph">klair</td><td class="nl">licht, helder</td><td class="en">clear, bright</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Aujourd'hui</td><td class="ph">oh-zhoor-DWEE</td><td class="nl">vandaag</td><td class="en">today</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text"><strong>Aujourd'hui, il fait beau</strong> ! C'est <strong>le printemps</strong>, <strong>il fait doux</strong>. Hier, <strong>il faisait froid</strong>, mais aujourd'hui le ciel est <strong>clair</strong>. Demain, on va à la plage, je pense — <strong>il fait chaud</strong> le matin et <strong>doux</strong> le soir.</p>
+    <p class="nl-text">Vandaag is het mooi weer! Het is lente, het is zacht. Gisteren was het koud, maar vandaag is de lucht helder. Morgen gaan we naar het strand, denk ik — het is warm 's ochtends en zacht 's avonds.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"The weather is nice." <span class="ans">→ Il fait beau.</span></li>
+      <li>"It's cold." <span class="ans">→ Il fait froid.</span></li>
+      <li>"The weather is hot." <span class="ans">→ Il fait chaud.</span></li>
+      <li>"Spring is my favourite season." <span class="ans">→ Le printemps est ma saison préférée.</span></li>
+      <li>"Today the sky is clear." <span class="ans">→ Aujourd'hui le ciel est clair.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li>French weather always uses <strong>il fait</strong> + adjective: <em>il fait beau, il fait froid, il fait chaud, il fait doux</em>. Literally "it makes hot/cold".</li>
+      <li><strong>Doux</strong> describes weather (mild), food (sweet), or texture (soft). It's a wide word.</li>
+      <li><strong>Clair</strong> = bright/clear. NOT "light" as in weight (which is <em>léger</em>).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Theme 16 -->
+<div class="theme">
+  <span class="theme-num">16</span><h1>Connectors & useful words<span class="fr-title">Petits mots utiles</span></h1>
+  <p class="lead">The small words that glue sentences together. Tiny but essential — without them you can't make complex sentences.</p>
+  <table class="words">
+    <tr><th>French</th><th>Sounds like</th><th>Dutch</th><th>English bridge</th></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Et</td><td class="ph">ay</td><td class="nl">en</td><td class="en">and — related to 'et cetera'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Mais</td><td class="ph">may</td><td class="nl">maar</td><td class="en">but</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Ou</td><td class="ph">oo</td><td class="nl">of</td><td class="en">or (no accent)</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Avec</td><td class="ph">ah-VEK</td><td class="nl">met</td><td class="en">with</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Sur</td><td class="ph">sewr</td><td class="nl">op</td><td class="en">on — related to 'surface'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Dans</td><td class="ph">dahn</td><td class="nl">in</td><td class="en">in, inside</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Sauf</td><td class="ph">sohf</td><td class="nl">behalve</td><td class="en">except — "save for"</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Depuis</td><td class="ph">duh-PWEE</td><td class="nl">sinds</td><td class="en">since</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Jusqu'à</td><td class="ph">zhew-SKAH</td><td class="nl">tot aan</td><td class="en">until, up to</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Pour</td><td class="ph">poor</td><td class="nl">om te, voor</td><td class="en">for, in order to</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Comme</td><td class="ph">kom</td><td class="nl">zoals</td><td class="en">like, as</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Beaucoup (de)</td><td class="ph">boh-KOO</td><td class="nl">veel</td><td class="en">a lot, many</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Un peu</td><td class="ph">uhn puh</td><td class="nl">weinig, een beetje</td><td class="en">a little</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Quelque chose</td><td class="ph">KEL-kuh shohz</td><td class="nl">iets</td><td class="en">"some thing"</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Tout</td><td class="ph">too</td><td class="nl">alles</td><td class="en">everything — related to 'total'</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Tout le monde</td><td class="ph">too luh MOHND</td><td class="nl">iedereen</td><td class="en">"all the world" = everyone</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Ensemble</td><td class="ph">ahn-SAHM-bluh</td><td class="nl">samen</td><td class="en">together (English borrows it)</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Seulement</td><td class="ph">suhl-MAHN</td><td class="nl">alleen maar</td><td class="en">only — from "seul" + "-ment"</td></tr>
+    <tr><td class="fr"><span class="deck-c">⇄</span> Aussi</td><td class="ph">oh-SEE</td><td class="nl">ook</td><td class="en">also, too</td></tr>
+    <tr><td class="fr"><span class="deck-r">→</span> Même</td><td class="ph">mem</td><td class="nl">zelfs, zelf</td><td class="en">even, same</td></tr>
+  </table>
+  <div class="story">
+    <h3>Petit récit</h3>
+    <p class="fr-text">Aujourd'hui, <strong>tout le monde</strong> est <strong>ensemble</strong> — <strong>sauf</strong> mon frère ! Il est malade <strong>depuis</strong> hier. <strong>On va</strong> à la plage <strong>avec</strong> ma mère. <strong>Je voudrais quelque chose</strong> à manger — <strong>un peu</strong> de pain <strong>et beaucoup de</strong> fromage, <strong>ou</strong> une salade. La plage est <strong>près du</strong> centre-ville, <strong>en face du</strong> supermarché. On reste <strong>jusqu'à</strong> six heures. <strong>Aussi</strong>, j'aime <strong>même</strong> les jours de pluie. <strong>Pour</strong> moi, c'est <strong>comme</strong> les vacances. <strong>Seulement</strong>, mon frère n'est pas là.</p>
+    <p class="nl-text">Vandaag is iedereen samen — behalve mijn broer! Hij is sinds gisteren ziek. We gaan met mijn moeder naar het strand. Ik wil iets te eten — een beetje brood en veel kaas, of een salade. Het strand is dichtbij het stadscentrum, tegenover de supermarkt. We blijven tot zes uur. Ook hou ik zelfs van regenachtige dagen. Voor mij is het zoals vakantie. Alleen, mijn broer is er niet.</p>
+  </div>
+  <div class="practice">
+    <h3>À toi !</h3>
+    <ol>
+      <li>"With my mother and father." <span class="ans">→ Avec ma mère et mon père.</span></li>
+      <li>"I want something for the dinner." <span class="ans">→ Je voudrais quelque chose pour le dîner.</span></li>
+      <li>"Everyone is here except him." <span class="ans">→ Tout le monde est ici sauf lui.</span></li>
+      <li>"From morning until evening." <span class="ans">→ Du matin jusqu'au soir.</span></li>
+      <li>"A little bread, please." <span class="ans">→ Un peu de pain, s'il vous plaît.</span></li>
+    </ol>
+  </div>
+  <div class="notes">
+    <h3>Remarques</h3>
+    <ul>
+      <li><strong>Ou</strong> (or, no accent) versus <strong>où</strong> (where, with accent). The accent makes all the difference.</li>
+      <li><strong>Et</strong> (and) sounds like [ay]. <strong>Est</strong> (is, from <em>être</em>) sounds like [eh]. Close pronunciation — write carefully.</li>
+      <li><strong>Tout</strong> = everything; <strong>tout le monde</strong> = everyone (literally "all the world").</li>
+      <li><strong>Beaucoup de</strong> + noun for "many/much": <em>beaucoup de pain, beaucoup d'amis</em> (use d' before vowels).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Back matter -->
+<div class="back">
+  <h1>Quick reference: false friends</h1>
+  <p>These are words that <em>look</em> like English words but mean something different. They are the most common source of mistakes — keep them on the tip of your tongue.</p>
+  <table>
+    <tr><td>La note</td><td>Grade / mark on schoolwork — NOT a written note (that's <em>un mot</em>).</td></tr>
+    <tr><td>Le coin</td><td>A corner (street corner, room corner) — NOT a metal coin (that's <em>une pièce</em>).</td></tr>
+    <tr><td>Le magasin</td><td>A shop / store — NOT a magazine (that's <em>un magazine</em>).</td></tr>
+    <tr><td>Le quartier</td><td>A neighbourhood — NOT a quarter coin.</td></tr>
+    <tr><td>La robe</td><td>A dress — NOT a bathrobe (that's <em>un peignoir</em>).</td></tr>
+    <tr><td>Comment ?</td><td>HOW — NOT "comment" (the noun). Just means "how".</td></tr>
+    <tr><td>Demander</td><td>To ASK — NOT to demand. A French waiter <em>demande</em> politely what you'd like.</td></tr>
+    <tr><td>Hier</td><td>YESTERDAY — looks like English "here" but means something different.</td></tr>
+    <tr><td>Libre</td><td>Free as in liberty / free time — NOT free of charge (that's <em>gratuit</em>).</td></tr>
+    <tr><td>Propre</td><td>"Own" before a noun, "clean" after a noun — context matters.</td></tr>
+  </table>
+
+  <h2>30-day study schedule</h2>
+  <p>Designed around the test on 10 June. Each day, plan ~20–25 minutes. Combine booklet themes (for context) with flashcards (for raw recall).</p>
+  <table>
+    <tr><td>Days 1–3 · Warm-up</td><td>Work through <strong>Themes 1–3</strong> (Introductions · Family · House). Sort the flashcards into Core and Recognition stacks; drop the 20 easiest into box 2.</td></tr>
+    <tr><td>Days 4–6 · Intake A</td><td><strong>Themes 4–6</strong> (School · Town · Directions). Add ~15 new flashcards/day to box 1.</td></tr>
+    <tr><td>Days 7–9 · Intake B</td><td><strong>Themes 7–9</strong> (Time · Questions · Food). Daily Leitner pass on box 1.</td></tr>
+    <tr><td>Days 10–12 · Intake C</td><td><strong>Themes 10–12</strong> (Clothes · Describing · Feelings). Box 1 + box 2 reviews.</td></tr>
+    <tr><td>Days 13–15 · Intake D</td><td><strong>Themes 13–15</strong> (Verbs · Movement · Weather). Box 1, 2, 3 reviews.</td></tr>
+    <tr><td>Day 16 · Last theme</td><td><strong>Theme 16</strong> (Connectors). Should feel quick — these are short words.</td></tr>
+    <tr><td>Days 17–22 · Consolidation</td><td>No new themes. Full Leitner cycle (all boxes on schedule). Identify leeches — cards that keep falling back to box 1. Rewrite those with extra-vivid English bridges or images.</td></tr>
+    <tr><td>Days 23–27 · Mock testing</td><td>Have someone test you orally. Re-read 2–3 mini-stories per day. Focus on the false-friends list above.</td></tr>
+    <tr><td>Days 28–30 · Final review</td><td>Two full Leitner passes per day. The night before the test, do one calm pass of the Core deck and sleep well — vocabulary consolidates overnight.</td></tr>
+  </table>
+
+  <h2>One last tip</h2>
+  <p>The single highest-yield activity in the next 30 days is <strong>active recall</strong>: covering the Dutch side and forcing yourself to produce it from the French (and vice versa for Core). Re-reading is comforting but does almost nothing. Test yourself, get it wrong, get it right next time. That's how vocabulary actually sticks.</p>
+  <p style="margin-top:8mm;color:#888;font-size:9pt"><em>Bonne chance pour le test ! — Good luck on 10 June.</em></p>
+</div>
+
+</body>
+</html>
