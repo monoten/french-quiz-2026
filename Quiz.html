@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<!--
+  French Vocabulary Quiz — Unités 1–6
+  Copyright (c) 2026 Monoten
+  Licensed under the MIT License. See LICENSE in the repo for full text.
+  SPDX-License-Identifier: MIT
+  Repo: https://github.com/monoten/french-quiz-2026
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>French Vocabulary Quiz — Unités 1–6</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; padding: 0; color: #222; background: #e6e8ee; min-height: 100vh; }
+  header { background: #2a3144; color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 100; }
+  header .brand { font-weight: 700; font-size: 16px; }
+  header .brand .sub { font-weight: 400; opacity: 0.75; margin-left: 8px; font-size: 13px; }
+  header .stats { font-size: 12px; opacity: 0.85; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 20px 40px; }
+  .card { background: white; border-radius: 10px; padding: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 20px; }
+  h1 { color: #2a3144; font-size: 24px; margin: 0 0 14px; }
+  h2 { color: #2a3144; font-size: 16px; margin: 22px 0 10px; font-weight: 600; }
+  p { line-height: 1.5; margin: 0 0 14px; }
+  .muted { color: #666; font-size: 13.5px; }
+  .small { font-size: 13px; }
+  button { background: #2a3144; color: white; border: none; padding: 10px 18px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer; font-family: inherit; }
+  button:hover { background: #3c4763; }
+  button.primary { background: #c89432; padding: 12px 24px; font-size: 16px; }
+  button.primary:hover { background: #d8a542; }
+  button.secondary { background: #e6e8ee; color: #2a3144; }
+  button.secondary:hover { background: #d8dae1; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .chip-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .chip { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 16px; background: #f0f2f6; border: 1.5px solid #d8dae1; color: #2a3144; font-size: 13px; cursor: pointer; transition: all 0.12s; user-select: none; }
+  .chip:hover { border-color: #2a3144; }
+  .chip.active { background: #2a3144; color: white; border-color: #2a3144; }
+  .chip.active.warm { background: #c89432; border-color: #c89432; }
+  .chip-count { margin-left: 6px; opacity: 0.7; font-size: 11px; }
+  .radio-group { display: flex; gap: 8px; flex-wrap: wrap; }
+  .radio { padding: 8px 14px; border-radius: 6px; background: #f0f2f6; border: 1.5px solid #d8dae1; cursor: pointer; font-size: 13.5px; }
+  .radio.active { background: #2a3144; color: white; border-color: #2a3144; }
+  .scope-info { background: #f8f5ee; border: 1px solid #e8d8a8; border-radius: 6px; padding: 10px 14px; margin: 16px 0; font-size: 13.5px; color: #6b5826; }
+  .scope-info strong { color: #2a3144; }
+  .progress { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-size: 13px; color: #666; }
+  .progress-bar { flex: 1; height: 4px; background: #e8eaee; border-radius: 2px; margin: 0 12px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: #c89432; transition: width 0.3s; }
+  .theme-tag { display: inline-block; padding: 2px 8px; background: #f0f2f6; color: #555; border-radius: 4px; font-size: 11px; margin-bottom: 12px; }
+  .deck-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 6px; }
+  .deck-tag.core { background: #fff5e1; color: #8b5a1a; }
+  .deck-tag.recog { background: #f1f3f6; color: #555; }
+  .prompt { text-align: center; padding: 30px 16px; background: linear-gradient(to bottom, #fcfcfd, #f8f9fb); border-radius: 8px; margin-bottom: 22px; }
+  .prompt .direction-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .prompt .word { font-size: 32px; font-weight: 700; color: #1a2235; line-height: 1.2; }
+  .prompt .hint { font-size: 13px; color: #888; font-style: italic; margin-top: 6px; }
+  .input-row { display: flex; gap: 8px; margin-bottom: 14px; }
+  input[type="text"] { flex: 1; padding: 12px 14px; font-size: 16px; border: 2px solid #d8dae1; border-radius: 6px; outline: none; font-family: inherit; }
+  input[type="text"]:focus { border-color: #c89432; }
+  input[type="text"]:disabled { background: #f0f2f6; }
+  .mc-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .mc-option { padding: 14px 16px; background: white; border: 2px solid #d8dae1; border-radius: 6px; cursor: pointer; font-size: 15px; text-align: left; transition: all 0.12s; color: #1a2235; -webkit-text-fill-color: #1a2235; font-family: inherit; font-weight: 500; opacity: 1; }
+  .mc-option:hover:not(:disabled) { border-color: #c89432; background: #fffaeb; }
+  .mc-option:disabled { cursor: not-allowed; opacity: 1; color: #1a2235; -webkit-text-fill-color: #1a2235; }
+  .mc-option.chose-right { background: #e8f5ec; border-color: #2a8a3a; color: #1a5a23; -webkit-text-fill-color: #1a5a23; }
+  .mc-option.chose-wrong { background: #fcebec; border-color: #b22a2a; color: #7a1a1a; -webkit-text-fill-color: #7a1a1a; }
+  .mc-option.show-right { background: #e8f5ec; border-color: #2a8a3a; color: #1a5a23; -webkit-text-fill-color: #1a5a23; font-weight: 600; }
+  .feedback { padding: 14px 18px; border-radius: 6px; margin-bottom: 14px; }
+  .feedback.correct { background: #e8f5ec; border-left: 4px solid #2a8a3a; }
+  .feedback.wrong { background: #fcebec; border-left: 4px solid #b22a2a; }
+  .feedback .verdict { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  .feedback.correct .verdict { color: #1a5a23; }
+  .feedback.wrong .verdict { color: #7a1a1a; }
+  .feedback .answer { font-size: 14px; color: #333; line-height: 1.5; }
+  .feedback .extra { font-size: 12.5px; color: #555; margin-top: 8px; font-style: italic; line-height: 1.4; }
+  .button-row { display: flex; gap: 10px; justify-content: flex-end; }
+  .results-summary { text-align: center; padding: 14px 0 22px; }
+  .results-summary .pct { font-size: 48px; font-weight: 800; color: #2a3144; line-height: 1; }
+  .results-summary .pct.good { color: #2a8a3a; }
+  .results-summary .pct.bad { color: #b22a2a; }
+  .results-summary .total { font-size: 16px; color: #555; margin-top: 6px; }
+  .breakdown { background: #f8f9fb; border-radius: 6px; padding: 14px 18px; margin-bottom: 18px; }
+  .breakdown h3 { font-size: 13px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px; }
+  .breakdown-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 14px; }
+  .breakdown-row span:last-child { color: #2a3144; font-weight: 600; }
+  .missed-list { font-size: 13px; line-height: 1.6; }
+  .missed-list li { margin-bottom: 4px; }
+  .missed-list .miss-fr { font-weight: 600; color: #1a2235; }
+  .missed-list .miss-nl { color: #555; }
+  .download-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 0; }
+  .download-row button { background: #2a8a3a; }
+  .download-row button:hover { background: #339947; }
+  .keyboard-hint { font-size: 12px; color: #888; margin-top: 8px; text-align: center; }
+  @media (max-width: 600px) {
+    .mc-options { grid-template-columns: 1fr; }
+    .prompt .word { font-size: 26px; }
+    main { padding: 14px 12px; }
+    .card { padding: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">French Vocabulary Quiz <span class="sub">· Unités 1–6</span></div>
+  <div class="stats" id="header-stats"></div>
+</header>
+
+<main id="app"></main>
+
+<script>
+// ============================================================
+// THEMES (matches study booklet)
+// ============================================================
+const THEMES = [
+  null, // 0 unused
+  "Introductions",
+  "Family & people",
+  "My house",
+  "School life",
+  "My town",
+  "Directions",
+  "Time & days",
+  "Asking questions",
+  "Food & meals",
+  "Clothes & colours",
+  "Describing people & things",
+  "Likes & feelings",
+  "Doing things — verbs",
+  "Going places",
+  "Weather & seasons",
+  "Connectors & useful words"
+];
+
+// ============================================================
+// WORDS — 235 cards across 16 themes
+// d: deck (C=Core/bidirectional, R=Recognition/FR→NL only)
+// t16: theme number (1–16, matches study booklet)
+// ============================================================
+const WORDS = [
+  // ===== CORE DECK =====
+  {d:"C",fr:"Je m'appelle",frHint:"(s'appeler)",ph:"zhuh mah-PELL",nl:"ik heet",t16:1,en:"\"I call myself\" — related to 'appeal'"},
+  {d:"C",fr:"J'habite",frHint:"(habiter)",ph:"zha-BEET",nl:"ik woon",t16:1,en:"related to 'inhabit'"},
+  {d:"C",fr:"Il y a",ph:"eel-YAH",nl:"er is, er zijn",t16:1,en:"there is / there are"},
+  {d:"C",fr:"C'est",ph:"say",nl:"het is",t16:1,en:"it is / this is"},
+  {d:"C",fr:"Où",ph:"oo",nl:"waar",t16:8,en:"where (with accent — differs from 'ou' = or)"},
+  {d:"C",fr:"Grand(e)",ph:"grahn / grahnd",nl:"groot",t16:11,en:"related to 'grand'"},
+  {d:"C",fr:"Petit(e)",ph:"puh-TEE / puh-TEET",nl:"klein",t16:11,en:"related to 'petite'"},
+  {d:"C",fr:"Joli(e)",ph:"zhoh-LEE",nl:"mooi, leuk",t16:11,en:"pretty — related to 'jolly'"},
+  {d:"C",fr:"Aussi",ph:"oh-SEE",nl:"ook",t16:16,en:"also, too"},
+  {d:"C",fr:"Comment ?",ph:"koh-MAHN",nl:"hoe ?",t16:8,en:"how? — NOT 'comment'!"},
+  {d:"C",fr:"Et",ph:"ay",nl:"en",t16:16,en:"and — related to 'et cetera'"},
+  {d:"C",fr:"Mais",ph:"may",nl:"maar",t16:16,en:"but"},
+  {d:"C",fr:"Avec",ph:"ah-VEK",nl:"met",t16:16,en:"with"},
+  {d:"C",fr:"Ou",ph:"oo",nl:"of",t16:16,en:"or (no accent)"},
+  {d:"C",fr:"Rentrer",ph:"rahn-TRAY",nl:"naar huis gaan",t16:14,en:"go home — 're-enter'"},
+  {d:"C",fr:"Sur",ph:"sewr",nl:"op",t16:16,en:"on — related to 'surface'"},
+  {d:"C",fr:"Dans",ph:"dahn",nl:"in",t16:16,en:"in, inside"},
+  {d:"C",fr:"Tout le monde",ph:"too luh MOHND",nl:"iedereen",t16:16,en:"\"all the world\" = everyone"},
+  {d:"C",fr:"Toujours",ph:"too-ZHOOR",nl:"altijd",t16:7,en:"always — \"all the days\""},
+  {d:"C",fr:"Regarder",ph:"ruh-gar-DAY",nl:"kijken",t16:13,en:"watch — related to 'regard'"},
+  {d:"C",fr:"Manger",ph:"mahn-ZHAY",nl:"eten",t16:9,en:"eat — like 'manger'"},
+  {d:"C",fr:"Écouter",ph:"ay-koo-TAY",nl:"luisteren naar",t16:13,en:"listen — like 'acoustic'"},
+  {d:"C",fr:"Adorer",ph:"ah-doh-RAY",nl:"dol zijn op",t16:12,en:"related to 'adore'"},
+  {d:"C",fr:"Demander",ph:"duh-mahn-DAY",nl:"vragen",t16:13,en:"ask — NOT 'to demand'!"},
+  {d:"C",fr:"Donner",ph:"doh-NAY",nl:"geven",t16:13,en:"give — related to 'donate'"},
+  {d:"C",fr:"Parler",ph:"par-LAY",nl:"praten",t16:13,en:"speak — related to 'parley'"},
+  {d:"C",fr:"Détester",ph:"day-tess-TAY",nl:"hekel hebben aan",t16:12,en:"related to 'detest'"},
+  {d:"C",fr:"Difficile",ph:"dee-fee-SEEL",nl:"moeilijk",t16:11,en:"related to 'difficult'"},
+  {d:"C",fr:"Sauf",ph:"sohf",nl:"behalve",t16:16,en:"except — 'save for'"},
+  {d:"C",fr:"Souvent",ph:"soo-VAHN",nl:"vaak",t16:7,en:"often — like 'frequent'"},
+  {d:"C",fr:"Le jour",ph:"luh zhoor",nl:"de dag",t16:7,en:"day — related to 'journal'"},
+  {d:"C",fr:"Pourquoi ?",ph:"poor-KWAH",nl:"waarom ?",t16:8,en:"why? — \"for what\""},
+  {d:"C",fr:"Lire",ph:"leer",nl:"lezen",t16:13,en:"read — like 'literate'"},
+  {d:"C",fr:"Beaucoup (de)",ph:"boh-KOO",nl:"veel",t16:16,en:"a lot, many"},
+  {d:"C",fr:"Un peu",ph:"uhn puh",nl:"weinig, een beetje",t16:16,en:"a little"},
+  {d:"C",fr:"Ensemble",ph:"ahn-SAHM-bluh",nl:"samen",t16:16,en:"together (English borrows 'ensemble')"},
+  {d:"C",fr:"Le matin",ph:"luh mah-TAN",nl:"de ochtend",t16:7,en:"morning — related to 'matins'"},
+  {d:"C",fr:"L'après-midi",ph:"lah-preh mee-DEE",nl:"de middag",t16:7,en:"\"after midday\""},
+  {d:"C",fr:"Le soir",ph:"luh swahr",nl:"de avond",t16:7,en:"evening — related to 'soirée'"},
+  {d:"C",fr:"Je voudrais",ph:"zhuh voo-DRAY",nl:"ik zou graag willen",t16:12,en:"I would like"},
+  {d:"C",fr:"Beau, belle",ph:"boh / bell",nl:"mooi",t16:11,en:"beautiful — like 'belle'"},
+  {d:"C",fr:"Calme",ph:"kalm",nl:"rustig",t16:11,en:"related to 'calm'"},
+  {d:"C",fr:"Arriver",ph:"ah-ree-VAY",nl:"aankomen",t16:14,en:"related to 'arrive'"},
+  {d:"C",fr:"À demain",ph:"ah duh-MAN",nl:"tot morgen",t16:1,en:"\"till tomorrow\""},
+  {d:"C",fr:"Excuse-moi",ph:"ex-KEWZ mwah",nl:"sorry",t16:1,en:"excuse me"},
+  {d:"C",fr:"C'est vrai",ph:"say vray",nl:"het is waar",t16:12,en:"it's true — related to 'verify'"},
+  {d:"C",fr:"C'est possible",ph:"say poh-SEE-bluh",nl:"het is mogelijk",t16:12,en:"it's possible"},
+  {d:"C",fr:"On va",frHint:"(aller)",ph:"ohn vah",nl:"we gaan",t16:14,en:"we go (\"on\" = we)"},
+  {d:"C",fr:"Heureusement",ph:"uh-ruhz-MAHN",nl:"gelukkig",t16:12,en:"luckily — 'heureux' = happy"},
+  {d:"C",fr:"Rencontrer",ph:"rahn-kohn-TRAY",nl:"ontmoeten",t16:13,en:"meet — \"re-encounter\""},
+  {d:"C",fr:"Autre",ph:"OH-truh",nl:"ander",t16:11,en:"other — related to 'alter'"},
+  {d:"C",fr:"Tu viens",frHint:"(venir)",ph:"tew vyan",nl:"jij komt",t16:14,en:"you come — related to 'advent'"},
+  {d:"C",fr:"Je vais",frHint:"(aller)",ph:"zhuh vay",nl:"ik ga",t16:14,en:"I go (irregular: aller)"},
+  {d:"C",fr:"Dernier, dernière",ph:"dehr-NYAY / dehr-NYAIR",nl:"laatste, vorige",t16:11,en:"last, previous"},
+  {d:"C",fr:"Préféré",ph:"pray-fay-RAY",nl:"lievelings-",t16:11,en:"favourite"},
+  {d:"C",fr:"Le mot",ph:"luh moh",nl:"het woord",t16:4,en:"word — related to 'motto'"},
+  {d:"C",fr:"Malade",ph:"mah-LAHD",nl:"ziek",t16:11,en:"ill — related to 'malady'"},
+  {d:"C",fr:"Oublier",ph:"oo-blee-AY",nl:"vergeten",t16:13,en:"forget — related to 'oblivion'"},
+  {d:"C",fr:"La salle",ph:"lah sahl",nl:"het klaslokaal",t16:4,en:"room, hall — related to 'salon'"},
+  {d:"C",fr:"Ensuite",ph:"ahn-SWEET",nl:"vervolgens",t16:7,en:"next, then — \"en suite\""},
+  {d:"C",fr:"Presque",ph:"PRESS-kuh",nl:"bijna",t16:7,en:"almost"},
+  {d:"C",fr:"Je peux",ph:"zhuh puh",nl:"ik kan, ik mag",t16:13,en:"I can / I may. Verb: pouvoir."},
+  {d:"C",fr:"Comme",ph:"kom",nl:"zoals",t16:16,en:"like, as"},
+  {d:"C",fr:"Demi",ph:"duh-MEE",nl:"half",t16:7,en:"half — related to 'demigod'"},
+  {d:"C",fr:"Trop",ph:"troh",nl:"te, teveel",t16:16,en:"too much"},
+  {d:"C",fr:"Dur",ph:"dewr",nl:"moeilijk (= difficile)",t16:11,en:"hard — related to 'durable'"},
+  {d:"C",fr:"Libre",ph:"LEE-bruh",nl:"vrij",t16:11,en:"free — related to 'liberty'"},
+  {d:"C",fr:"Depuis",ph:"duh-PWEE",nl:"sinds",t16:16,en:"since"},
+  {d:"C",fr:"Vivre",ph:"VEE-vruh",nl:"leven, wonen",t16:13,en:"live — related to 'vivacious'"},
+  {d:"C",fr:"Faire du vélo",ph:"fair dew vay-LOH",nl:"fietsen",t16:14,en:"to cycle (\"do bicycle\")"},
+  {d:"C",fr:"La semaine prochaine",ph:"lah suh-MEN proh-SHEN",nl:"de volgende week",t16:7,en:"next week"},
+  {d:"C",fr:"Le rêve",ph:"luh rev",nl:"de droom",t16:12,en:"dream — related to 'reverie'"},
+  {d:"C",fr:"Au fond",ph:"oh fohn",nl:"achterin",t16:6,en:"at the back — related to 'profound'"},
+  {d:"C",fr:"Gagner",ph:"gahn-YAY",nl:"winnen, verdienen",t16:13,en:"win, earn — related to 'gain'"},
+  {d:"C",fr:"La femme",ph:"lah fahm",nl:"de vrouw",t16:2,en:"woman — related to 'feminine'"},
+  {d:"C",fr:"L'homme",ph:"lom",nl:"de man",t16:2,en:"man — related to 'human'"},
+  {d:"C",fr:"Porter",ph:"por-TAY",nl:"dragen",t16:10,en:"carry, wear — related to 'portable'"},
+  {d:"C",fr:"Changer",ph:"shahn-ZHAY",nl:"veranderen",t16:13,en:"related to 'change'"},
+  {d:"C",fr:"Cher, chère",ph:"shair",nl:"duur",t16:10,en:"expensive — related to 'cherish'"},
+  {d:"C",fr:"Quelque chose",ph:"KEL-kuh shohz",nl:"iets",t16:16,en:"\"some thing\""},
+  {d:"C",fr:"Le repas",ph:"luh ruh-PAH",nl:"de maaltijd",t16:9,en:"meal — related to 'repast'"},
+  {d:"C",fr:"Froid",ph:"frwah",nl:"koud",t16:15,en:"cold — related to 'frigid'"},
+  {d:"C",fr:"Chaud",ph:"shoh",nl:"warm",t16:15,en:"hot — related to 'calorie'"},
+
+  // ===== RECOGNITION DECK =====
+  {d:"R",fr:"Le quartier",ph:"luh kar-TYAY",nl:"de wijk",t16:5,en:"neighbourhood — NOT a quarter coin"},
+  {d:"R",fr:"L'école",ph:"lay-KOHL",nl:"de school",t16:4,en:"related to 'school, scholar'"},
+  {d:"R",fr:"Le pays",ph:"luh pay-EE",nl:"het land",t16:5,en:"country — like 'paysage'"},
+  {d:"R",fr:"La ville",ph:"lah veel",nl:"de stad",t16:5,en:"city — related to 'village'"},
+  {d:"R",fr:"Là-bas",ph:"lah-BAH",nl:"daar",t16:6,en:"over there"},
+  {d:"R",fr:"Ici",ph:"ee-SEE",nl:"hier",t16:6,en:"here"},
+  {d:"R",fr:"Loin",ph:"lwan",nl:"ver weg",t16:6,en:"far away"},
+  {d:"R",fr:"Près",ph:"preh",nl:"dichtbij",t16:6,en:"near — \"pressed close\""},
+  {d:"R",fr:"Maintenant",ph:"man-tuh-NAHN",nl:"nu",t16:7,en:"now — \"main-tenant\""},
+  {d:"R",fr:"Meilleur",ph:"may-YUR",nl:"beste",t16:11,en:"best — related to 'ameliorate'"},
+  {d:"R",fr:"Le chien",ph:"luh shyan",nl:"de hond",t16:2,en:"dog — related to 'canine'"},
+  {d:"R",fr:"La chambre",ph:"lah SHAHM-bruh",nl:"de slaapkamer",t16:3,en:"bedroom — related to 'chamber'"},
+  {d:"R",fr:"Quel(le)",ph:"kell",nl:"welke",t16:8,en:"which? what?"},
+  {d:"R",fr:"À pied",ph:"ah pyay",nl:"lopend",t16:6,en:"on foot — related to 'pedal'"},
+  {d:"R",fr:"Bon, bonne",ph:"bohn / bun",nl:"goed, lekker",t16:11,en:"good — related to 'bon-bon'"},
+  {d:"R",fr:"Attends !",frHint:"(attendre)",ph:"ah-TAHN",nl:"wacht !",t16:13,en:"wait! — related to 'attend'"},
+  {d:"R",fr:"Le voisin",ph:"luh vwah-ZAN",nl:"de buurman",t16:2,en:"neighbour — 'vois' = see"},
+  {d:"R",fr:"Dimanche",ph:"dee-MAHNSH",nl:"zondag",t16:7,en:"Sunday — \"Lord's day\""},
+  {d:"R",fr:"L'anglais",ph:"lahn-GLAY",nl:"Engels",t16:4,en:"English"},
+  {d:"R",fr:"Le français",ph:"luh frahn-SAY",nl:"Frans",t16:4,en:"French"},
+  {d:"R",fr:"L'allemand",ph:"lal-MAHN",nl:"Duits",t16:4,en:"German — like 'allemande'"},
+  {d:"R",fr:"L'histoire",ph:"lee-STWAHR",nl:"Geschiedenis",t16:4,en:"related to 'history'"},
+  {d:"R",fr:"La note",ph:"lah noht",nl:"het cijfer",t16:4,en:"grade — NOT a written note!"},
+  {d:"R",fr:"Les devoirs",ph:"lay duh-VWAHR",nl:"het huiswerk",t16:4,en:"homework — 'devoir' = duty"},
+  {d:"R",fr:"L'ordinateur",ph:"lor-dee-nah-TUR",nl:"de computer",t16:4,en:"\"one that orders things\""},
+  {d:"R",fr:"Travailler",ph:"trah-vah-YAY",nl:"werken",t16:13,en:"work — related to 'travail'"},
+  {d:"R",fr:"Commencer",ph:"koh-mahn-SAY",nl:"beginnen",t16:13,en:"related to 'commence'"},
+  {d:"R",fr:"Dessiner",ph:"deh-see-NAY",nl:"tekenen",t16:13,en:"draw — related to 'design'"},
+  {d:"R",fr:"La matière",ph:"lah mah-TYAIR",nl:"het schoolvak",t16:4,en:"school subject"},
+  {d:"R",fr:"Il doit",frHint:"(devoir)",ph:"eel dwah",nl:"hij moet",t16:13,en:"he must — 'devoir' = duty"},
+  {d:"R",fr:"Dangereux",ph:"dahn-zhuh-RUH",nl:"gevaarlijk",t16:11,en:"related to 'dangerous'"},
+  {d:"R",fr:"J'ai peur",frHint:"(avoir peur)",ph:"zhay pur",nl:"ik ben bang",t16:12,en:"\"have fear\" — related to 'peril'"},
+  {d:"R",fr:"Le match",ph:"luh mahtch",nl:"de wedstrijd",t16:5,en:"match (sports)"},
+  {d:"R",fr:"L'escalier",ph:"less-kah-LYAY",nl:"de trap",t16:3,en:"stairs — related to 'escalator'"},
+  {d:"R",fr:"L'arrêt de bus",ph:"lah-RAY duh boos",nl:"de bushalte",t16:5,en:"bus stop — 'arrêt' = arrest"},
+  {d:"R",fr:"La circulation",ph:"lah seer-kew-lah-SYOHN",nl:"het verkeer",t16:5,en:"traffic — related to 'circulation'"},
+  {d:"R",fr:"En face de",ph:"ahn fahs duh",nl:"tegenover",t16:6,en:"\"in face of\" = opposite"},
+  {d:"R",fr:"Le coin",ph:"luh kwan",nl:"de hoek",t16:5,en:"corner — NOT a metal coin!"},
+  {d:"R",fr:"La boulangerie",ph:"lah boo-lahn-zhuh-REE",nl:"de bakkerij",t16:5,en:"bakery — 'boule' = ball"},
+  {d:"R",fr:"Premier",ph:"pruh-MYAY",nl:"eerste",t16:11,en:"first — related to 'premier'"},
+  {d:"R",fr:"Deuxième",ph:"duh-ZYEM",nl:"tweede",t16:11,en:"second — 'deux' + 'ième'"},
+  {d:"R",fr:"Troisième",ph:"trwah-ZYEM",nl:"derde",t16:11,en:"third — 'trois' + 'ième'"},
+  {d:"R",fr:"Déménager",ph:"day-may-nah-ZHAY",nl:"verhuizen",t16:14,en:"move house — \"un-house\""},
+  {d:"R",fr:"Propre",ph:"PROH-pruh",nl:"eigen",t16:11,en:"one's own — related to 'proper'"},
+  {d:"R",fr:"Bleu",ph:"bluh",nl:"blauw",t16:10,en:"related to 'blue'"},
+  {d:"R",fr:"Blanc",ph:"blahn",nl:"wit",t16:10,en:"white — related to 'blank'"},
+  {d:"R",fr:"Rouge",ph:"roozh",nl:"rood",t16:10,en:"red — related to 'rouge'"},
+  {d:"R",fr:"Jusqu'à",ph:"zhew-SKAH",nl:"tot aan",t16:16,en:"until, up to"},
+  {d:"R",fr:"La vue",ph:"lah vew",nl:"het uitzicht",t16:3,en:"view — related to 'visual'"},
+  {d:"R",fr:"Même",ph:"mem",nl:"zelfs, zelf",t16:16,en:"even; same"},
+  {d:"R",fr:"Oui",ph:"wee",nl:"ja",t16:1,en:"yes"},
+  {d:"R",fr:"Non",ph:"nohn",nl:"nee",t16:1,en:"no"},
+  {d:"R",fr:"Le garçon",ph:"luh gar-SOHN",nl:"de jongen",t16:2,en:"boy / waiter"},
+  {d:"R",fr:"La fille",ph:"lah FEE-yuh",nl:"het meisje, de dochter",t16:2,en:"girl / daughter — related to 'filial'"},
+  {d:"R",fr:"L'enfant",ph:"lahn-FAHN",nl:"het kind",t16:2,en:"child — related to 'infant'"},
+  {d:"R",fr:"Les parents",ph:"lay pah-RAHN",nl:"de ouders",t16:2,en:"parents"},
+  {d:"R",fr:"Le père",ph:"luh pair",nl:"de vader",t16:2,en:"father — related to 'paternal'"},
+  {d:"R",fr:"La mère",ph:"lah mair",nl:"de moeder",t16:2,en:"mother — related to 'maternal'"},
+  {d:"R",fr:"Le fils",ph:"luh feess",nl:"de zoon",t16:2,en:"son — related to 'filial'"},
+  {d:"R",fr:"Seul(e)",ph:"suhl",nl:"alleen",t16:11,en:"alone — related to 'sole'"},
+  {d:"R",fr:"Chez nous",ph:"shay noo",nl:"bij ons thuis",t16:2,en:"at our place"},
+  {d:"R",fr:"Le/la prof",ph:"luh / lah proff",nl:"de docent",t16:4,en:"teacher — 'professeur'"},
+  {d:"R",fr:"L'élève",ph:"lay-LEV",nl:"de leerling",t16:4,en:"pupil — related to 'elevate'"},
+  {d:"R",fr:"Le stylo",ph:"luh stee-LOH",nl:"de pen",t16:4,en:"pen — related to 'stylus'"},
+  {d:"R",fr:"Apprendre",ph:"ah-PRAHN-druh",nl:"leren",t16:13,en:"learn — related to 'apprehend'"},
+  {d:"R",fr:"Préférer",ph:"pray-fay-RAY",nl:"liever hebben",t16:12,en:"related to 'prefer'"},
+  {d:"R",fr:"Jouer",ph:"zhoo-AY",nl:"spelen",t16:13,en:"to play"},
+  {d:"R",fr:"Le cahier",ph:"luh kah-YAY",nl:"het schrift",t16:4,en:"exercise book"},
+  {d:"R",fr:"Qui ?",ph:"kee",nl:"wie ?",t16:8,en:"who?"},
+  {d:"R",fr:"Nouveau, nouvelle",ph:"noo-VOH / noo-VELL",nl:"nieuw",t16:11,en:"new — related to 'novel'"},
+  {d:"R",fr:"La maison",ph:"lah may-ZOHN",nl:"het huis",t16:3,en:"house — related to 'mansion'"},
+  {d:"R",fr:"Présenter",ph:"pray-zahn-TAY",nl:"voorstellen",t16:13,en:"introduce, present"},
+  {d:"R",fr:"Fort en",ph:"for ahn",nl:"goed in",t16:4,en:"\"strong in\" = good at"},
+  {d:"R",fr:"Nul en",ph:"newl ahn",nl:"slecht in",t16:4,en:"\"null in\" = bad at"},
+  {d:"R",fr:"Le cours",ph:"luh koor",nl:"de les",t16:4,en:"class, course"},
+  {d:"R",fr:"Qu'est-ce que… ?",ph:"kess-kuh",nl:"wat… ?",t16:8,en:"what...?"},
+  {d:"R",fr:"Tout",ph:"too",nl:"alles",t16:16,en:"everything — related to 'total'"},
+  {d:"R",fr:"La langue",ph:"lah lahng",nl:"de taal",t16:4,en:"language — related to 'linguistics'"},
+  {d:"R",fr:"Comprendre",ph:"kohm-PRAHN-druh",nl:"begrijpen",t16:13,en:"related to 'comprehend'"},
+  {d:"R",fr:"Déjeuner",ph:"day-zhuh-NAY",nl:"lunchen",t16:9,en:"have lunch — \"un-fast\""},
+  {d:"R",fr:"Midi",ph:"mee-DEE",nl:"12 uur 's middags",t16:7,en:"noon = mid-day"},
+  {d:"R",fr:"Minuit",ph:"mee-NWEE",nl:"12 uur 's nachts",t16:7,en:"midnight (mi-nuit)"},
+  {d:"R",fr:"Aujourd'hui",ph:"oh-zhoor-DWEE",nl:"vandaag",t16:7,en:"\"on the day of today\""},
+  {d:"R",fr:"Quand ?",ph:"kahn",nl:"wanneer ?",t16:8,en:"when?"},
+  {d:"R",fr:"Combien ?",ph:"kohm-BYAN",nl:"hoeveel ?",t16:8,en:"how much / many?"},
+  {d:"R",fr:"La cuisine",ph:"lah kwee-ZEEN",nl:"de keuken",t16:3,en:"related to 'cuisine'"},
+  {d:"R",fr:"La fenêtre",ph:"lah fuh-NEH-truh",nl:"het raam",t16:3,en:"window — related to 'defenestrate'"},
+  {d:"R",fr:"La chaise",ph:"lah shez",nl:"de stoel",t16:3,en:"chair — like 'chaise longue'"},
+  {d:"R",fr:"La table",ph:"lah TAH-bluh",nl:"de tafel",t16:3,en:"related to 'table'"},
+  {d:"R",fr:"Le lit",ph:"luh lee",nl:"het bed",t16:3,en:"bed — like 'litter'"},
+  {d:"R",fr:"La voiture",ph:"lah vwah-TEWR",nl:"de auto",t16:5,en:"car"},
+  {d:"R",fr:"Le centre-ville",ph:"luh sahn-truh-VEEL",nl:"het stadscentrum",t16:5,en:"city centre"},
+  {d:"R",fr:"Le magasin",ph:"luh mah-gah-ZAN",nl:"de winkel",t16:5,en:"shop — NOT a magazine!"},
+  {d:"R",fr:"Ouvert",frHint:"(ouvrir)",ph:"oo-VAIR",nl:"open, geopend",t16:11,en:"open — related to 'overt'"},
+  {d:"R",fr:"Le supermarché",ph:"luh sew-pair-mar-SHAY",nl:"de supermarkt",t16:5,en:"supermarket"},
+  {d:"R",fr:"La plage",ph:"lah plahzh",nl:"het strand",t16:5,en:"beach — like 'playa'"},
+  {d:"R",fr:"Monter",ph:"mohn-TAY",nl:"naar boven gaan",t16:14,en:"go up — related to 'mount'"},
+  {d:"R",fr:"Descendre",ph:"deh-SAHN-druh",nl:"naar beneden gaan",t16:14,en:"related to 'descend'"},
+  {d:"R",fr:"Il faut",ph:"eel foh",nl:"je moet, het is nodig",t16:12,en:"one must, it is necessary"},
+  {d:"R",fr:"La chose",ph:"lah shohz",nl:"het ding (le truc)",t16:16,en:"thing"},
+  {d:"R",fr:"Chercher",ph:"shair-SHAY",nl:"zoeken",t16:13,en:"search — related to 'research'"},
+  {d:"R",fr:"Passer",ph:"pah-SAY",nl:"doorbrengen",t16:14,en:"spend (time)"},
+  {d:"R",fr:"Dommage",ph:"doh-MAHZH",nl:"jammer",t16:12,en:"\"damage\" = what a pity"},
+  {d:"R",fr:"À gauche",ph:"ah gohsh",nl:"linksaf",t16:6,en:"to the left — related to 'gauche'"},
+  {d:"R",fr:"À droite",ph:"ah drwaht",nl:"rechtsaf",t16:6,en:"to the right — related to 'adroit'"},
+  {d:"R",fr:"Tout droit",ph:"too drwah",nl:"rechtdoor",t16:6,en:"straight ahead"},
+  {d:"R",fr:"La place",ph:"lah plahs",nl:"de plaats, het plein",t16:5,en:"place, square"},
+  {d:"R",fr:"Clair",ph:"klair",nl:"licht, helder",t16:15,en:"clear, bright"},
+  {d:"R",fr:"Pour",ph:"poor",nl:"om te, voor",t16:16,en:"for, in order to"},
+  {d:"R",fr:"Le frigo",ph:"luh free-GOH",nl:"de ijskast",t16:3,en:"fridge — from 'frigidaire'"},
+  {d:"R",fr:"Le four",ph:"luh foor",nl:"de oven",t16:3,en:"oven — related to 'furnace'"},
+  {d:"R",fr:"Doux",ph:"doo",nl:"zacht",t16:15,en:"soft, mild — related to 'dulcet'"},
+  {d:"R",fr:"L'habitant",ph:"lah-bee-TAHN",nl:"de inwoner",t16:2,en:"related to 'inhabitant'"},
+  {d:"R",fr:"La dispute",ph:"lah dee-SPEWT",nl:"de ruzie",t16:3,en:"argument — related to 'dispute'"},
+  {d:"R",fr:"Les vêtements",ph:"lay vet-MAHN",nl:"de kleren",t16:10,en:"clothes — related to 'vestments'"},
+  {d:"R",fr:"La robe",ph:"lah rohb",nl:"de jurk",t16:10,en:"dress — NOT a bathrobe!"},
+  {d:"R",fr:"La chaussure",ph:"lah shoh-SEWR",nl:"de schoen",t16:10,en:"shoe"},
+  {d:"R",fr:"Les lunettes",ph:"lay lew-NETT",nl:"de bril",t16:10,en:"\"little moons\" = glasses"},
+  {d:"R",fr:"Le chapeau",ph:"luh shah-POH",nl:"de hoed",t16:10,en:"hat (English borrows 'chapeau')"},
+  {d:"R",fr:"Choisir",ph:"shwah-ZEER",nl:"kiezen",t16:9,en:"to choose"},
+  {d:"R",fr:"Commander",ph:"koh-mahn-DAY",nl:"bestellen",t16:9,en:"order (food)"},
+  {d:"R",fr:"Par exemple",ph:"par eg-ZAHM-pluh",nl:"bijvoorbeeld",t16:16,en:"for example"},
+  {d:"R",fr:"Bon appétit",ph:"bohn ah-pay-TEE",nl:"eet smakelijk",t16:9,en:"\"good appetite\""},
+  {d:"R",fr:"Avoir faim",ph:"ah-VWAHR fan",nl:"honger hebben",t16:9,en:"\"to have hunger\" — related to 'famine'"},
+  {d:"R",fr:"Avoir soif",ph:"ah-VWAHR swahf",nl:"dorst hebben",t16:9,en:"\"to have thirst\""},
+  {d:"R",fr:"Le fromage",ph:"luh froh-MAHZH",nl:"de kaas",t16:9,en:"cheese"},
+  {d:"R",fr:"La viande",ph:"lah vyahnd",nl:"het vlees",t16:9,en:"meat — like 'viand'"},
+  {d:"R",fr:"Le pain",ph:"luh pan",nl:"het brood",t16:9,en:"bread — related to 'pantry'"},
+  {d:"R",fr:"L'eau",ph:"loh",nl:"het water",t16:9,en:"water — related to 'aqua'"},
+  {d:"R",fr:"La glace",ph:"lah glahss",nl:"het ijs",t16:9,en:"ice / ice cream — related to 'glacier'"},
+  {d:"R",fr:"Le plat",ph:"luh plah",nl:"het gerecht",t16:9,en:"dish (course)"},
+  {d:"R",fr:"Laver",ph:"lah-VAY",nl:"wassen",t16:13,en:"wash — related to 'lavatory'"},
+  {d:"R",fr:"Le jambon",ph:"luh zhahn-BOHN",nl:"de ham",t16:9,en:"ham"},
+  {d:"R",fr:"La confiture",ph:"lah kohn-fee-TEWR",nl:"de jam",t16:9,en:"jam — related to 'confection'"},
+  {d:"R",fr:"Le lait",ph:"luh lay",nl:"de melk",t16:9,en:"milk — related to 'lactose'"},
+  {d:"R",fr:"La salade",ph:"lah sah-LAHD",nl:"de salade",t16:9,en:"related to 'salad'"},
+  {d:"R",fr:"Vite",ph:"veet",nl:"snel",t16:11,en:"fast"},
+  {d:"R",fr:"Facile",ph:"fah-SEEL",nl:"makkelijk",t16:11,en:"easy — related to 'facile'"},
+  {d:"R",fr:"Je prends",ph:"zhuh prahn",nl:"ik neem",t16:9,en:"I take. Verb: prendre."},
+  {d:"R",fr:"Le verre",ph:"luh vair",nl:"het glas",t16:9,en:"drinking glass"},
+  {d:"R",fr:"Payer",ph:"pay-YAY",nl:"betalen",t16:9,en:"related to 'pay'"},
+  {d:"R",fr:"Il fait beau",ph:"eel fay boh",nl:"het is mooi weer",t16:15,en:"\"it makes beautiful\" = nice weather"},
+  {d:"R",fr:"Le printemps",ph:"luh PRAN-tahn",nl:"het voorjaar",t16:15,en:"spring — \"first time\""},
+  {d:"R",fr:"C'est mieux",ph:"say myuh",nl:"het is beter",t16:12,en:"it's better"},
+  {d:"R",fr:"Penser",ph:"pahn-SAY",nl:"denken",t16:12,en:"think — related to 'pensive'"},
+  {d:"R",fr:"Délicieux",ph:"day-lee-SYUH",nl:"heerlijk",t16:9,en:"related to 'delicious'"},
+  {d:"R",fr:"Ce soir",ph:"suh swahr",nl:"vanavond",t16:7,en:"\"this evening\""},
+  {d:"R",fr:"Hier",ph:"yair",nl:"gisteren",t16:7,en:"yesterday (looks like English 'here')"},
+  {d:"R",fr:"La nourriture",ph:"lah noo-ree-TEWR",nl:"het eten",t16:9,en:"food — related to 'nourish'"},
+  {d:"R",fr:"La santé",ph:"lah sahn-TAY",nl:"de gezondheid",t16:2,en:"health — related to 'sanitary'"},
+  {d:"R",fr:"Mignon",ph:"mee-NYOHN",nl:"schattig",t16:11,en:"cute — like 'filet mignon'"},
+  {d:"R",fr:"Seulement",ph:"suhl-MAHN",nl:"alleen maar",t16:16,en:"only — 'seul' + '-ment'"}
+];
+
+// Assign stable IDs
+WORDS.forEach((w, i) => {
+  const sameDeckBefore = WORDS.slice(0, i).filter(x => x.d === w.d).length;
+  w.id = w.d + String(sameDeckBefore + 1).padStart(3, '0');
+});
+
+// ============================================================
+// STATE
+// ============================================================
+const LS_KEY_HISTORY = "vocab_quiz_history_v1";
+const LS_KEY_PERF = "vocab_quiz_perf_v1";
+const LS_KEY_SETTINGS = "vocab_quiz_settings_v1";
+
+let state = {
+  screen: 'start',
+  config: {
+    themes: [],   // [1..16], empty = all
+    deck: 'both', // 'core' | 'recog' | 'both'
+    direction: 'mixed', // 'fr-nl' | 'nl-fr' | 'mixed'  (Core questions only)
+    mode: 'typing', // 'typing' | 'mc'
+    count: 20,
+    articlesRequired: true // le/la/les/l'/de/het/een required in noun answers
+  },
+  questions: [],
+  currentIndex: 0,
+  results: []
+};
+
+// ============================================================
+// PERSISTENCE
+// ============================================================
+function loadJSON(key, fallback) {
+  try {
+    const s = localStorage.getItem(key);
+    return s ? JSON.parse(s) : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+function saveJSON(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* ignore */ }
+}
+function loadHistory() { return loadJSON(LS_KEY_HISTORY, []); }
+function saveHistory(h) { saveJSON(LS_KEY_HISTORY, h); }
+function loadPerf() { return loadJSON(LS_KEY_PERF, {}); }
+function savePerf(p) { saveJSON(LS_KEY_PERF, p); }
+function loadSettings() { return loadJSON(LS_KEY_SETTINGS, null); }
+function saveSettings(s) { saveJSON(LS_KEY_SETTINGS, s); }
+
+function updatePerf(wordId, direction, correct) {
+  const perf = loadPerf();
+  const key = wordId + ':' + direction;
+  if (!perf[key]) perf[key] = { attempts: 0, wrong: 0, recentWrong: 0 };
+  perf[key].attempts++;
+  if (correct) {
+    perf[key].recentWrong = Math.max(0, perf[key].recentWrong - 1);
+  } else {
+    perf[key].wrong++;
+    perf[key].recentWrong = Math.min(5, perf[key].recentWrong + 1);
+  }
+  perf[key].lastTime = Date.now();
+  savePerf(perf);
+}
+
+function getWordWeight(wordId, direction) {
+  const perf = loadPerf();
+  const key = wordId + ':' + direction;
+  const p = perf[key];
+  if (!p) return 1.0; // unseen
+  // leech-weighted: each recent wrong adds weight
+  return 1.0 + p.recentWrong * 1.5;
+}
+
+// ============================================================
+// MATCHING
+// ============================================================
+function normalize(s) {
+  if (s == null) return '';
+  return String(s).toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[?!.,;:]+/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function stripLeadingArticle(s) {
+  // s is already normalized (lowercase). Returns version without leading
+  // article (FR: le/la/les/l'/un/une/des; NL: de/het/een), or null if none.
+  const patterns = [/^l['‛]\s*/, /^les\s+/, /^le\s+/, /^la\s+/, /^une?\s+/, /^des\s+/, /^de\s+/, /^het\s+/, /^een\s+/];
+  for (const p of patterns) {
+    if (p.test(s)) return s.replace(p, '').trim();
+  }
+  return null;
+}
+
+function getAcceptedAnswers(answer, articlesOptional) {
+  const variants = new Set();
+  variants.add(normalize(answer));
+
+  // Split on slash (used like "ik kan/ik mag")
+  if (answer.includes('/')) {
+    answer.split('/').forEach(a => variants.add(normalize(a.trim())));
+  }
+
+  // Split on comma (used like "het meisje, de dochter")
+  const parts = answer.split(',').map(p => p.trim());
+  for (const part of parts) {
+    variants.add(normalize(part));
+
+    // Short parenthetical suffix: Grand(e), Petit(e), Quel(le)
+    const m1 = part.match(/^(.+?)\(([a-zA-Zàâäéèêëîïôöûüç]{1,3})\)$/i);
+    if (m1) {
+      variants.add(normalize(m1[1].trim()));
+      variants.add(normalize((m1[1] + m1[2]).trim()));
+    }
+
+    // Longer parenthetical (informational, e.g. "(le truc)" or "(= difficile)")
+    const m2 = part.match(/^(.+?)\s*\(([^)]+)\)\s*(.*)$/);
+    if (m2) {
+      const stripped = (m2[1] + ' ' + m2[3]).replace(/\s+/g, ' ').trim();
+      variants.add(normalize(stripped));
+    }
+  }
+
+  // If articles are optional, also accept article-stripped versions
+  if (articlesOptional) {
+    const additional = [];
+    for (const v of variants) {
+      const noArt = stripLeadingArticle(v);
+      if (noArt) additional.push(noArt);
+    }
+    additional.forEach(a => variants.add(a));
+  }
+
+  variants.delete('');
+  return [...variants];
+}
+
+function isCorrect(userAnswer, correctAnswer, articlesOptional) {
+  if (!userAnswer || !userAnswer.trim()) return false;
+  const accepted = getAcceptedAnswers(correctAnswer, articlesOptional);
+  return accepted.includes(normalize(userAnswer));
+}
+
+// ============================================================
+// QUESTION GENERATION
+// ============================================================
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function weightedSample(pool, count) {
+  // Pool is [{word, weight, direction}], sample without replacement
+  const items = pool.slice();
+  const chosen = [];
+  while (chosen.length < count && items.length > 0) {
+    const totalWeight = items.reduce((s, it) => s + it.weight, 0);
+    let r = Math.random() * totalWeight;
+    let idx = 0;
+    for (let i = 0; i < items.length; i++) {
+      r -= items[i].weight;
+      if (r <= 0) { idx = i; break; }
+    }
+    chosen.push(items[idx]);
+    items.splice(idx, 1);
+  }
+  return chosen;
+}
+
+function filterWords(config) {
+  let pool = WORDS.slice();
+  if (config.deck === 'core') pool = pool.filter(w => w.d === 'C');
+  else if (config.deck === 'recog') pool = pool.filter(w => w.d === 'R');
+  if (config.themes.length > 0) pool = pool.filter(w => config.themes.includes(w.t16));
+  return pool;
+}
+
+function buildQuestions(config) {
+  const pool = filterWords(config);
+  // Expand into pool with direction
+  const expanded = [];
+  for (const w of pool) {
+    if (w.d === 'C') {
+      // Bidirectional — directions according to config
+      if (config.direction === 'fr-nl' || config.direction === 'mixed') {
+        expanded.push({ word: w, direction: 'fr-nl' });
+      }
+      if (config.direction === 'nl-fr' || config.direction === 'mixed') {
+        expanded.push({ word: w, direction: 'nl-fr' });
+      }
+    } else {
+      // Recognition — always FR→NL
+      expanded.push({ word: w, direction: 'fr-nl' });
+    }
+  }
+  // Assign weights (adaptive/leech-weighted)
+  const weighted = expanded.map(item => ({
+    ...item,
+    weight: getWordWeight(item.word.id, item.direction)
+  }));
+  // Sample
+  const n = config.count === 'all' ? weighted.length : Math.min(parseInt(config.count, 10), weighted.length);
+  const sampled = weightedSample(weighted, n);
+
+  // Build questions
+  return sampled.map(item => {
+    const isFRtoNL = item.direction === 'fr-nl';
+    return {
+      word: item.word,
+      direction: item.direction,
+      prompt: isFRtoNL ? item.word.fr : item.word.nl,
+      promptHint: isFRtoNL ? item.word.frHint : null,
+      expected: isFRtoNL ? item.word.nl : item.word.fr,
+      mcOptions: null // built lazily
+    };
+  });
+}
+
+function generateMCOptions(question) {
+  const correct = question.expected;
+  const word = question.word;
+  const isFRtoNL = question.direction === 'fr-nl';
+  // Same-theme pool first
+  let pool = WORDS.filter(w => w.t16 === word.t16 && w.id !== word.id)
+    .map(w => isFRtoNL ? w.nl : w.fr);
+  // Dedupe vs correct
+  const normCorrect = normalize(correct);
+  pool = pool.filter(p => normalize(p) !== normCorrect);
+  // If not enough, pad from full set
+  if (pool.length < 3) {
+    const extras = WORDS.filter(w => w.id !== word.id).map(w => isFRtoNL ? w.nl : w.fr);
+    for (const e of extras) {
+      if (pool.length >= 12) break;
+      if (normalize(e) !== normCorrect && !pool.some(p => normalize(p) === normalize(e))) pool.push(e);
+    }
+  }
+  const distractors = shuffle(pool).slice(0, 3);
+  return shuffle([correct, ...distractors]);
+}
+
+// ============================================================
+// CSV
+// ============================================================
+function csvEscape(s) {
+  if (s == null) return '';
+  const str = String(s);
+  if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+    return '"' + str.replace(/"/g, '""') + '"';
+  }
+  return str;
+}
+
+function generateCSV(records) {
+  const headers = ['timestamp','word_id','french','dutch','direction','your_answer','correct','theme','deck'];
+  const rows = [headers.join(',')];
+  for (const r of records) {
+    rows.push([
+      csvEscape(r.timestamp),
+      csvEscape(r.word_id),
+      csvEscape(r.french),
+      csvEscape(r.dutch),
+      csvEscape(r.direction),
+      csvEscape(r.your_answer),
+      csvEscape(r.correct),
+      csvEscape(r.theme),
+      csvEscape(r.deck)
+    ].join(','));
+  }
+  return rows.join('\n');
+}
+
+function downloadCSV(content, filename) {
+  const blob = new Blob([content], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 100);
+}
+
+// ============================================================
+// HEADER STATS
+// ============================================================
+function updateHeaderStats() {
+  const hist = loadHistory();
+  const el = document.getElementById('header-stats');
+  if (hist.length === 0) { el.textContent = ''; return; }
+  const sessions = new Set(hist.map(r => r.session_id)).size;
+  const correct = hist.filter(r => r.correct === 1).length;
+  const pct = Math.round((correct / hist.length) * 100);
+  el.textContent = `${sessions} session${sessions === 1 ? '' : 's'} · ${pct}% avg`;
+}
+
+// ============================================================
+// SCREENS
+// ============================================================
+const app = document.getElementById('app');
+
+function el(tag, attrs = {}, ...children) {
+  const e = document.createElement(tag);
+  for (const k in attrs) {
+    if (k === 'class') e.className = attrs[k];
+    else if (k === 'onclick') e.onclick = attrs[k];
+    else if (k === 'oninput') e.oninput = attrs[k];
+    else if (k === 'onkeydown') e.onkeydown = attrs[k];
+    else if (k === 'style') Object.assign(e.style, attrs[k]);
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), attrs[k]);
+    else e.setAttribute(k, attrs[k]);
+  }
+  for (const c of children) {
+    if (c == null) continue;
+    if (typeof c === 'string') e.appendChild(document.createTextNode(c));
+    else e.appendChild(c);
+  }
+  return e;
+}
+
+function clear() { app.innerHTML = ''; }
+
+function showStart() {
+  state.screen = 'start';
+  state.results = [];
+  state.questions = [];
+  state.currentIndex = 0;
+  clear();
+
+  // restore last settings if any
+  const saved = loadSettings();
+  if (saved) Object.assign(state.config, saved);
+
+  const cfg = state.config;
+
+  // Count words in scope for live preview
+  const updateScopeCount = () => {
+    const filtered = filterWords(cfg);
+    const coreCount = filtered.filter(w => w.d === 'C').length;
+    const recogCount = filtered.filter(w => w.d === 'R').length;
+    let qPool = 0;
+    if (cfg.deck === 'core' || cfg.deck === 'both') {
+      qPool += coreCount * (cfg.direction === 'mixed' ? 2 : 1);
+    }
+    if (cfg.deck === 'recog' || cfg.deck === 'both') {
+      qPool += recogCount;
+    }
+    document.getElementById('scope-info').innerHTML =
+      `<strong>${filtered.length}</strong> words in scope · <strong>${qPool}</strong> possible questions` +
+      (filtered.length === 0 ? ' — <span style="color:#b22a2a">pick at least one theme</span>' : '');
+  };
+
+  // Theme chips
+  const themeChips = el('div', { class: 'chip-group' });
+  const allChip = el('div', {
+    class: 'chip' + (cfg.themes.length === 0 ? ' active' : ''),
+    onclick: () => { cfg.themes = []; saveSettings(cfg); showStart(); }
+  }, 'All themes');
+  themeChips.appendChild(allChip);
+  for (let t = 1; t <= 16; t++) {
+    const count = WORDS.filter(w => w.t16 === t).length;
+    const chip = el('div', {
+      class: 'chip' + (cfg.themes.includes(t) ? ' active' : ''),
+      onclick: () => {
+        if (cfg.themes.includes(t)) cfg.themes = cfg.themes.filter(x => x !== t);
+        else cfg.themes = [...cfg.themes, t];
+        saveSettings(cfg);
+        showStart();
+      }
+    }, `${t}. ${THEMES[t]}`, el('span', { class: 'chip-count' }, String(count)));
+    themeChips.appendChild(chip);
+  }
+
+  // Deck radios
+  const deckGroup = el('div', { class: 'radio-group' });
+  for (const opt of [['both','Both decks'],['core','Core only (⇄)'],['recog','Recognition only (→)']]) {
+    deckGroup.appendChild(el('div', {
+      class: 'radio' + (cfg.deck === opt[0] ? ' active' : ''),
+      onclick: () => { cfg.deck = opt[0]; saveSettings(cfg); showStart(); }
+    }, opt[1]));
+  }
+
+  // Direction radios (only meaningful when Core is in scope)
+  const dirGroup = el('div', { class: 'radio-group' });
+  for (const opt of [['mixed','Mixed (random)'],['fr-nl','FR → NL only'],['nl-fr','NL → FR only']]) {
+    dirGroup.appendChild(el('div', {
+      class: 'radio' + (cfg.direction === opt[0] ? ' active' : ''),
+      onclick: () => { cfg.direction = opt[0]; saveSettings(cfg); showStart(); }
+    }, opt[1]));
+  }
+
+  // Mode radios
+  const modeGroup = el('div', { class: 'radio-group' });
+  for (const opt of [['typing','Typing'],['mc','Multiple choice']]) {
+    modeGroup.appendChild(el('div', {
+      class: 'radio' + (cfg.mode === opt[0] ? ' active' : ''),
+      onclick: () => { cfg.mode = opt[0]; saveSettings(cfg); showStart(); }
+    }, opt[1]));
+  }
+
+  // Articles radios (affects typing-mode matching)
+  const articlesGroup = el('div', { class: 'radio-group' });
+  for (const opt of [[true, 'Required (test-realistic)'], [false, 'Optional (forgiving)']]) {
+    articlesGroup.appendChild(el('div', {
+      class: 'radio' + (cfg.articlesRequired === opt[0] ? ' active' : ''),
+      onclick: () => { cfg.articlesRequired = opt[0]; saveSettings(cfg); showStart(); }
+    }, opt[1]));
+  }
+
+  // Count radios
+  const countGroup = el('div', { class: 'radio-group' });
+  for (const n of [10, 20, 30, 50, 'all']) {
+    countGroup.appendChild(el('div', {
+      class: 'radio' + (String(cfg.count) === String(n) ? ' active' : ''),
+      onclick: () => { cfg.count = n; saveSettings(cfg); showStart(); }
+    }, n === 'all' ? 'All in scope' : String(n)));
+  }
+
+  const card = el('div', { class: 'card' },
+    el('h1', {}, 'Quiz setup'),
+    el('p', { class: 'muted' }, 'Pick your filters below. The quiz will choose words from this scope, leech-weighted (recently-missed words come back more often).'),
+
+    el('h2', {}, 'Themes ', el('span', { class: 'small muted' }, '(click to select; multi-select)')),
+    themeChips,
+
+    el('h2', {}, 'Deck'),
+    deckGroup,
+
+    el('h2', {}, 'Direction ', el('span', { class: 'small muted' }, '(applies to Core deck only)')),
+    dirGroup,
+
+    el('h2', {}, 'Answer mode'),
+    modeGroup,
+
+    el('h2', {}, 'Articles ', el('span', { class: 'small muted' }, '(le/la/de/het for nouns — typing mode only)')),
+    articlesGroup,
+
+    el('h2', {}, 'Length'),
+    countGroup,
+
+    el('div', { class: 'scope-info', id: 'scope-info' }),
+
+    el('div', { style: { marginTop: '20px', textAlign: 'right' } },
+      el('button', { class: 'primary', onclick: startQuiz, id: 'start-btn' }, 'Start quiz →')
+    )
+  );
+  app.appendChild(card);
+
+  // History summary
+  const hist = loadHistory();
+  if (hist.length > 0) {
+    const sessions = {};
+    hist.forEach(r => { sessions[r.session_id] = sessions[r.session_id] || []; sessions[r.session_id].push(r); });
+    const sessionList = Object.values(sessions).sort((a,b) => new Date(b[0].timestamp) - new Date(a[0].timestamp)).slice(0, 5);
+    const histCard = el('div', { class: 'card' },
+      el('h2', { style: { marginTop: 0 } }, 'Recent sessions'),
+      ...sessionList.map(s => {
+        const correct = s.filter(r => r.correct === 1).length;
+        const total = s.length;
+        const pct = Math.round((correct / total) * 100);
+        const date = new Date(s[0].timestamp);
+        const dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        return el('div', { class: 'breakdown-row', style: { fontSize: '13.5px' } },
+          el('span', {}, dateStr),
+          el('span', {}, `${correct}/${total} (${pct}%)`)
+        );
+      }),
+      el('div', { class: 'download-row' },
+        el('button', { class: 'secondary', onclick: () => {
+          const csv = generateCSV(hist);
+          downloadCSV(csv, `vocab_quiz_history_${new Date().toISOString().slice(0,10)}.csv`);
+        }}, 'Download full history (CSV)'),
+        el('button', { class: 'secondary', onclick: () => {
+          if (confirm('Clear all history? This cannot be undone.')) {
+            saveHistory([]); savePerf({}); updateHeaderStats(); showStart();
+          }
+        }}, 'Clear history')
+      )
+    );
+    app.appendChild(histCard);
+  }
+
+  updateScopeCount();
+  document.getElementById('start-btn').disabled = filterWords(cfg).length === 0;
+}
+
+function startQuiz() {
+  state.questions = buildQuestions(state.config);
+  if (state.questions.length === 0) { alert('No words match your filters. Pick at least one theme.'); return; }
+  state.currentIndex = 0;
+  state.results = [];
+  state.sessionId = 's_' + Date.now() + '_' + Math.floor(Math.random()*1000);
+  state.sessionStart = Date.now();
+  showQuestion();
+}
+
+function showQuestion() {
+  state.screen = 'question';
+  clear();
+  const q = state.questions[state.currentIndex];
+  const total = state.questions.length;
+  const correctSoFar = state.results.filter(r => r.correct === 1).length;
+  const directionLabel = q.direction === 'fr-nl' ? 'French → Dutch' : 'Dutch → French';
+  const themeName = THEMES[q.word.t16];
+  const deckTag = el('span', { class: 'deck-tag ' + (q.word.d === 'C' ? 'core' : 'recog') },
+    q.word.d === 'C' ? 'Core ⇄' : 'Recognition →');
+
+  const card = el('div', { class: 'card' });
+  card.appendChild(el('div', { class: 'progress' },
+    el('span', {}, `Q ${state.currentIndex + 1} / ${total}`),
+    el('div', { class: 'progress-bar' },
+      el('div', { class: 'progress-bar-fill', style: { width: ((state.currentIndex / total) * 100) + '%' } })
+    ),
+    el('span', {}, `Score ${correctSoFar} / ${state.currentIndex}`)
+  ));
+  card.appendChild(el('div', {},
+    el('span', { class: 'theme-tag' }, themeName),
+    deckTag
+  ));
+
+  card.appendChild(el('div', { class: 'prompt' },
+    el('div', { class: 'direction-label' }, directionLabel),
+    el('div', { class: 'word' }, q.prompt),
+    q.promptHint ? el('div', { class: 'hint' }, q.promptHint) : null
+  ));
+
+  if (state.config.mode === 'mc') {
+    if (!q.mcOptions) q.mcOptions = generateMCOptions(q);
+    const mcGrid = el('div', { class: 'mc-options', id: 'mc-grid' });
+    q.mcOptions.forEach((opt, i) => {
+      mcGrid.appendChild(el('button', {
+        class: 'mc-option',
+        'data-opt': opt,
+        onclick: () => submitMC(opt, i)
+      }, opt));
+    });
+    card.appendChild(mcGrid);
+  } else {
+    const input = el('input', { type: 'text', id: 'answer-input', autocomplete: 'off', autocapitalize: 'none', spellcheck: 'false',
+      onkeydown: (e) => { if (e.key === 'Enter') submitTyping(); }
+    });
+    card.appendChild(el('div', { class: 'input-row' },
+      input,
+      el('button', { onclick: submitTyping }, 'Submit')
+    ));
+    card.appendChild(el('div', { class: 'keyboard-hint' }, 'Press Enter to submit · accents not required · capitalisation ignored'));
+  }
+  app.appendChild(card);
+  setTimeout(() => {
+    const inp = document.getElementById('answer-input');
+    if (inp) inp.focus();
+  }, 30);
+}
+
+function submitTyping() {
+  const inp = document.getElementById('answer-input');
+  if (!inp) return;
+  const userAnswer = inp.value.trim();
+  if (!userAnswer) return;
+  const q = state.questions[state.currentIndex];
+  const articlesOpt = !state.config.articlesRequired;
+  const correct = isCorrect(userAnswer, q.expected, articlesOpt);
+  recordResult(q, userAnswer, correct);
+  showFeedback(userAnswer, correct);
+}
+
+function submitMC(option, idx) {
+  const q = state.questions[state.currentIndex];
+  const articlesOpt = !state.config.articlesRequired;
+  const correct = isCorrect(option, q.expected, articlesOpt);
+  recordResult(q, option, correct);
+  // Visual feedback on MC buttons
+  document.querySelectorAll('#mc-grid .mc-option').forEach(btn => {
+    btn.disabled = true;
+    const val = btn.getAttribute('data-opt');
+    if (isCorrect(val, q.expected, articlesOpt)) btn.classList.add('show-right');
+    else if (val === option) btn.classList.add('chose-wrong');
+  });
+  setTimeout(() => showFeedback(option, correct, true), 700);
+}
+
+function recordResult(q, userAnswer, correct) {
+  const record = {
+    session_id: state.sessionId,
+    timestamp: new Date().toISOString(),
+    word_id: q.word.id,
+    french: q.word.fr,
+    dutch: q.word.nl,
+    direction: q.direction,
+    your_answer: userAnswer,
+    correct: correct ? 1 : 0,
+    theme: THEMES[q.word.t16],
+    deck: q.word.d === 'C' ? 'Core' : 'Recognition'
+  };
+  state.results.push(record);
+  // append to history
+  const hist = loadHistory();
+  hist.push(record);
+  saveHistory(hist);
+  // update perf for leech tracking
+  updatePerf(q.word.id, q.direction, correct);
+  updateHeaderStats();
+}
+
+function showFeedback(userAnswer, correct, skipMC) {
+  const q = state.questions[state.currentIndex];
+  const card = document.querySelector('.card');
+  // Disable the input area
+  const inp = document.getElementById('answer-input');
+  if (inp) inp.disabled = true;
+  // Remove any existing submit/feedback below input
+  const existingButtons = card.querySelectorAll('.input-row button');
+  existingButtons.forEach(b => b.disabled = true);
+  const kbHint = card.querySelector('.keyboard-hint');
+  if (kbHint) kbHint.remove();
+
+  const feedback = el('div', { class: 'feedback ' + (correct ? 'correct' : 'wrong') });
+  feedback.appendChild(el('div', { class: 'verdict' }, correct ? '✓ Correct' : '✗ Not quite'));
+  if (correct) {
+    feedback.appendChild(el('div', { class: 'answer' }, `${q.word.fr}  =  ${q.word.nl}`));
+  } else {
+    feedback.appendChild(el('div', { class: 'answer' },
+      el('strong', {}, 'You answered: '), userAnswer || '(blank)', el('br'),
+      el('strong', {}, 'Correct: '), q.expected
+    ));
+  }
+  // Always show pronunciation + english bridge for learning
+  if (q.word.ph || q.word.en) {
+    const extra = el('div', { class: 'extra' });
+    if (q.word.ph) extra.appendChild(el('span', {}, `[${q.word.ph}] · `));
+    if (q.word.en) extra.appendChild(el('span', {}, q.word.en));
+    feedback.appendChild(extra);
+  }
+  card.appendChild(feedback);
+
+  const buttonRow = el('div', { class: 'button-row' },
+    el('button', { class: 'primary', id: 'next-btn', onclick: nextQuestion },
+      state.currentIndex + 1 < state.questions.length ? 'Next →' : 'See results →')
+  );
+  card.appendChild(buttonRow);
+  setTimeout(() => {
+    const nb = document.getElementById('next-btn');
+    if (nb) nb.focus();
+  }, 30);
+  document.addEventListener('keydown', enterToAdvance);
+}
+
+function enterToAdvance(e) {
+  if (e.key === 'Enter') {
+    document.removeEventListener('keydown', enterToAdvance);
+    nextQuestion();
+  }
+}
+
+function nextQuestion() {
+  document.removeEventListener('keydown', enterToAdvance);
+  state.currentIndex++;
+  if (state.currentIndex >= state.questions.length) showResults();
+  else showQuestion();
+}
+
+function showResults() {
+  state.screen = 'result';
+  clear();
+  const total = state.results.length;
+  const correct = state.results.filter(r => r.correct === 1).length;
+  const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+  const pctClass = pct >= 80 ? 'good' : pct < 50 ? 'bad' : '';
+
+  // Per-theme breakdown
+  const byTheme = {};
+  state.results.forEach(r => {
+    if (!byTheme[r.theme]) byTheme[r.theme] = { c: 0, t: 0 };
+    byTheme[r.theme].t++;
+    if (r.correct === 1) byTheme[r.theme].c++;
+  });
+  const themeRows = Object.entries(byTheme).map(([theme, s]) =>
+    el('div', { class: 'breakdown-row' }, el('span', {}, theme), el('span', {}, `${s.c} / ${s.t}`))
+  );
+
+  // Per-direction breakdown
+  const byDir = { 'fr-nl': { c: 0, t: 0 }, 'nl-fr': { c: 0, t: 0 } };
+  state.results.forEach(r => {
+    byDir[r.direction].t++;
+    if (r.correct === 1) byDir[r.direction].c++;
+  });
+  const dirRows = [];
+  if (byDir['fr-nl'].t > 0) dirRows.push(el('div', { class: 'breakdown-row' },
+    el('span', {}, 'French → Dutch'), el('span', {}, `${byDir['fr-nl'].c} / ${byDir['fr-nl'].t}`)));
+  if (byDir['nl-fr'].t > 0) dirRows.push(el('div', { class: 'breakdown-row' },
+    el('span', {}, 'Dutch → French'), el('span', {}, `${byDir['nl-fr'].c} / ${byDir['nl-fr'].t}`)));
+
+  // Missed words
+  const missed = state.results.filter(r => r.correct === 0);
+  const missedList = el('ul', { class: 'missed-list', style: { paddingLeft: '20px', listStyle: 'disc' } });
+  missed.forEach(r => missedList.appendChild(
+    el('li', {},
+      el('span', { class: 'miss-fr' }, r.french),
+      ' → ',
+      el('span', { class: 'miss-nl' }, r.dutch),
+      r.your_answer ? el('span', { style: { color: '#888' } }, ` (you wrote: ${r.your_answer})`) : null
+    )
+  ));
+
+  const card = el('div', { class: 'card' },
+    el('h1', {}, 'Results'),
+    el('div', { class: 'results-summary' },
+      el('div', { class: 'pct ' + pctClass }, pct + '%'),
+      el('div', { class: 'total' }, `${correct} correct out of ${total}`)
+    )
+  );
+
+  if (themeRows.length > 0) {
+    card.appendChild(el('div', { class: 'breakdown' },
+      el('h3', {}, 'By theme'),
+      ...themeRows
+    ));
+  }
+  if (dirRows.length > 0) {
+    card.appendChild(el('div', { class: 'breakdown' },
+      el('h3', {}, 'By direction'),
+      ...dirRows
+    ));
+  }
+  if (missed.length > 0) {
+    card.appendChild(el('div', { class: 'breakdown' },
+      el('h3', {}, 'Words missed (' + missed.length + ')'),
+      missedList
+    ));
+  }
+
+  card.appendChild(el('div', { class: 'download-row' },
+    el('button', { onclick: () => {
+      const csv = generateCSV(state.results);
+      const ts = new Date().toISOString().slice(0,16).replace(/[:T]/g, '-');
+      downloadCSV(csv, `vocab_quiz_session_${ts}.csv`);
+    }}, '⬇ Download this session (CSV)'),
+    el('button', { onclick: () => {
+      const csv = generateCSV(loadHistory());
+      const ts = new Date().toISOString().slice(0,10);
+      downloadCSV(csv, `vocab_quiz_history_${ts}.csv`);
+    }}, '⬇ Download full history (CSV)')
+  ));
+  card.appendChild(el('div', { style: { marginTop: '14px' } },
+    el('button', { class: 'primary', onclick: showStart }, '↻ Another quiz')
+  ));
+
+  app.appendChild(card);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+updateHeaderStats();
+showStart();
+</script>
+
+</body>
+</html>
